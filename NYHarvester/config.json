@@ -1,0 +1,31 @@
+{
+	"appConfig" : {
+		"logVerticleInstances" : 1,
+		"dbVerticleInstances" : 1,
+		"queryVerticleInstances" : 1
+	},
+	
+	"logConfig" : {
+	
+	},	
+	
+	"dbConfig" : {
+		"dbHost" : "127.0.0.1",
+		"dbPort" : 5984,
+		"dbName" : "/new_york/",
+		"dbConflictCount" : 10000
+	},
+	
+	"queryConfig" : {
+		"twHost" : "api.twitter.com",
+		"twPort" : 443,
+		"urlPath" : "/1.1/search/tweets.json",
+		"urlPara" : "?q=&geocode=40.685832%2C-73.8676589962982%2C41.5km&count=100",
+		"token" : "Bearer ...",
+		"updateUrlType": "next_results",
+		"timeout" : 10000,
+		"interval" : 4000,
+		"tag" : "NY_Centroid_Radius=41.5km"
+	}
+		
+}

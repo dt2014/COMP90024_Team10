@@ -1,0 +1,8 @@
+{
+
+  // Java verticle
+  "main":"team10.AppStarter",
+
+
+  "auto-redeploy": true
+}
