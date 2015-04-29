@@ -53,11 +53,11 @@ for fid in db:
     if 'sentiment' in doc:
         continue
     tweet = doc['text']
+    print tweet
     tweet = split_into_words(tweet,pattern)
     count = 0
-    print tweet
     for i in range(3):
-        individual_result = classifier_list[i].classify(extract_features(tweet,word_features))
+        individual_result = classifier_list[i].classify(extract_features(tweet))
         if individual_result == '0':
             individual_result = -1
         else:
