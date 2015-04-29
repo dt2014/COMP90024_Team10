@@ -18,16 +18,19 @@
       apt: pkg=openjdk-7-jre-headless state=latest
     - name: Install make
       apt: pkg=make
-    - name: Get verx
+    - name: Get vertx
       command: > 
           wget http://dl.bintray.com/vertx/downloads/vert.x-2.1.5.tar.gz
           creates=vert.x-2.1.5.tar.gz
-    - name: Unpack verx
+    - name: Unpack vertx
       command: > 
           tar xzf vert.x-2.1.5.tar.gz
           creates=vert.x-2.1.5
-    - name: Install verx
+    - name: Install vertx
       shell: > 
           ./configure && make;
           ldconfig
           chdir=vert.x-2.1.5
+    - name: Change PATH for vertx
+      shell: >
+          PATH=$PATH:/home/ubuntu/vert.x-2.1.5/bin
