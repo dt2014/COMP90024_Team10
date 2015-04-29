@@ -1,8 +1,8 @@
 AnsibleScript
 ==============
 
-- Launch:
+- Launch: ansible-playbook -i hostFile playbookFile
 
 ##Description
-There is an Ansible script that manages the software automation.
+Ansible scripts that manage the software automation.
 
