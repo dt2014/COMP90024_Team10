@@ -2,6 +2,7 @@
 	"appConfig" : {
 		"logVerticleInstances" : 1,
 		"dbVerticleInstances" : 1,
+		"removeDuplicateVerticleInstances" : 1,
 		"queryVerticleInstances" : 1
 	},
 	
@@ -10,9 +11,13 @@
 	},	
 	
 	"dbConfig" : {
+		"distributed_dbs" : [{"dbHost" : "127.0.0.1", "dbPort" : 5984, "dbName" : "/id_set1/"}, {"dbHost" : "127.0.0.1", "dbPort" : 5984, "dbName" : "/id_set2/"}]
+	},
+	
+	"removeDuplicateConfig" : {
 		"dbHost" : "127.0.0.1",
 		"dbPort" : 5984,
-		"dbName" : "/new_york/",
+		"dbName" : "/id_db/",
 		"dbConflictCount" : 10000
 	},
 	
@@ -24,7 +29,7 @@
 		"token" : "Bearer ...",
 		"updateUrlType": "next_results",
 		"timeout" : 10000,
-		"interval" : 4000,
+		"interval" : 2200,
 		"tag" : "NY_Centroid_Radius=41.5km"
 	}
 		

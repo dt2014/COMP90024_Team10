@@ -6,7 +6,7 @@
   <groupId>team10</groupId>
   <artifactId>NYHarvester</artifactId>
   <packaging>jar</packaging>
-  <version>0.1</version>
+  <version>0.2</version>
   <name>Project - NYHarvester</name>
   <url>http://maven.apache.org</url>
 

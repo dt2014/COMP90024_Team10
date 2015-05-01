@@ -2,6 +2,10 @@ package team10;
 
 /*
  * @author Fengmin Deng
+ * 
+ * This verticle is for organizing and sending query requests for twitter Search
+ * API. The search line could be either backwards or forwards by indicating either
+ * "next_results" or "refresh_url" for the URL type in the configuration file.
  */
 
 import org.vertx.java.core.Handler;
@@ -56,7 +60,7 @@ public class QueryVerticle extends Verticle {
 					            	for(int i = 0; i < tweets.size(); ++i) {
 					            		JsonObject tweet = tweets.get(i);
 					            		tweet.putObject("harvester_appends", appendInfo);
-					            		evenBus.send(Constants.QUEUE_TWDATA, tweet);
+					            		evenBus.send(Constants.QUEUE_CANDIDATE, tweet);
 					            	}
 					            }
 					        });

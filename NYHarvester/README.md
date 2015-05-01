@@ -11,23 +11,27 @@ For installing and launching the system, these tools/environments are needed:
 ##To run the system
 - Change the 'config.json' file with parameters desired
 - Maven Install
-- Launch via command: $ vertx runzip NYHarvester-0.1-mod.zip -conf 'config.json'
+- Launch via command: $ vertx runzip NYHarvester-0.2-mod.zip -conf 'config.json'
 
 ##Parameters of Application Configuration
 1. "appConfig": Configuration for the application starter
-		"logVerticleInstances": Number of instances of LogVerticle to be deployed 
-		"dbVerticleInstances": Number of instances of DBVerticleInstances to be deployed
-		"queryVerticleInstances": Number of instances of ParseVerticleInstances to be deployed
+#"logVerticleInstances": Number of instances of LogVerticle to be deployed
+#"dbVerticleInstances": Number of instances of DBVerticleInstances to be deployed
+#"removeDuplicateVerticleInstances": Number of instances of RemoveDuplicateVerticle to be deployed
+#"queryVerticleInstances": Number of instances of ParseVerticleInstances to be deployed
 
 2. "logConfig": Configuration for the log verticle, currently empty
 
 3. "dbConfig": Configuration for the database verticle
-		"dbHost": The CouchDB host for saving the harvested tweets
-		"dbPort": The CouchDB post for saving the harvested tweets
-		"dbName": The CouchDB name for saving the harvested tweets
-		dbConflictCount" : The number of conflicts, i.e. repeated tweets, accumulated by inserting data in CouchDB
+#"distributed_dbs": a json array for a list of distributed databases that store the harvested tweets, "dbHost", "dbPort" and "dbName" are the CouchDB host, port and database-name for these distributed databases 
 
-4. "queryConfig": Configuration for the query verticle
+4. "removeDuplicateConfig": Configuration for the Remove-Duplicate verticle
+#"dbHost": The CouchDB host for saving the harvested tweets
+#"dbPort": The CouchDB post for saving the harvested tweets
+#"dbName": The CouchDB name for saving the harvested tweets
+#"dbConflictCount" : The number of conflicts, i.e. repeated tweets, accumulated by inserting data in CouchDB
+
+5. "queryConfig": Configuration for the query verticle
 		"twHost": Twitter resource host
 		"twPort": Twitter resource post
 		"urlPath": URL path

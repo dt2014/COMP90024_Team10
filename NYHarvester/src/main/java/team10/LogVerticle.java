@@ -2,6 +2,8 @@ package team10;
 
 /*
  * @author Fengmin Deng
+ * 
+ * This verticle is responsible for logging for the application.
  */
 
 import org.vertx.java.core.Handler;
