@@ -57,7 +57,7 @@ answer = {1:'Positive',-1:'Negative'}
 # Update document in new_york( Adding sentiments)
 for fid in db:
     doc = db[fid]
-    if 'sentiment' in doc:
+    if 'sentiment' in doc and 'district' in doc:
         continue
     tweet = doc['text']
     print tweet
