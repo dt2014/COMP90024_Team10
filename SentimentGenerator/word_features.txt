@@ -2007,10 +2007,12 @@ zippy
 :)
 :))
 :o)
-XD
+xd
 ;)
 ;))
 ;o)
+;o))
+:o))
 holiday
 sunday
 weekend
@@ -6811,6 +6813,7 @@ zombie
 ;o(
 >:o(
 >:(
+>;o(
 exam
 test
 homework

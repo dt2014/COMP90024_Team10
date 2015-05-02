@@ -2,8 +2,14 @@ import pickle
 import couchdb
 import re
 
+pm = __import__('testInside')
+
 word_feature_filePath = "./word_features.txt"
 classifier_filePath = "./classifier_Utral"
+
+#word_feature_filePath = "Desktop/Cloud Assignment/Map Reduce Analysis/word_features.txt"
+#classifier_filePath = "Desktop/Cloud Assignment/Map Reduce Analysis/classifier_Utral"
+
 pattern = re.compile('(([A-z]{2,}(\'t)?))|([:;]o?\){1,3})|(>?[:;]o?\()')
 
 
@@ -47,6 +53,7 @@ db = couch['new_york']
 
 answer = {1:'Positive',-1:'Negative'}
 
+
 # Update document in new_york( Adding sentiments)
 for fid in db:
     doc = db[fid]
@@ -73,7 +80,8 @@ for fid in db:
     else:
         doc['sentiment'] = 'Negative'
     print 'sentiment = ', doc['sentiment']
+    district = pm.calculateDistrict(doc)
+    doc['district'] = district
+    print 'district = ',district
     db.save(doc)
-
-
 
