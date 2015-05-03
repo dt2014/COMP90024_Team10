@@ -1,0 +1,23 @@
+function(doc){
+    var keywords = ["headache","cough","coughing","coughed","sickly","flu","dizzy","ache","diarrhoea","aching","dizziness","nausea","stomachache","fever","sneeze","vomit","cramp","sick"];
+    var words = doc.text.toLowerCase().split(" ");
+    for(i in words) {
+        if(keywords.indexOf(words[i]) > -1){
+            if(doc.geo != null){
+            	var lat = parseFloat(doc.geo.coordinates[0]).toFixed(2)
+            	var lon = parseFloat(doc.geo.coordinates[1]).toFixed(2)
+            	emit([lat,lon],1);
+                break;
+            }else{
+            	var lat = parseFloat(doc.retweeted_status.geo.coordinates[0]).toFixed(2)
+           	var lon = parseFloat(doc.retweeted_status.geo.coordinates[1]).toFixed(2)
+                emit([lat,lon],1);
+            }
+        }
+    }
+
+}
+
+
+
+//return will be the coordinate that people saying they fell sick

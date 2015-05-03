@@ -1,0 +1,34 @@
+//study except english speaking people, how many people lived in New York but speaking different languages and where do they live and are they cluster as a group? They are they happy? and what are their most active hour
+
+
+// solve are they live together
+function(doc){
+    if(doc.lang != "en"){
+        if(doc.geo != null){
+            var lat = parseFloat(doc.geo.coordinates[0]).toFixed(2)
+            var lon = parseFloat(doc.geo.coordinates[1]).toFixed(2)
+            emit([doc.lang,[lat,lon]],1);
+
+        }else{
+            var lat = parseFloat(doc.retweeted_status.geo.coordinates[0]).toFixed(2)
+            var lon = parseFloat(doc.retweeted_status.geo.coordinates[1]).toFixed(2)
+            emit([doc.lang,[lat,lon]],1);
+        }
+    }
+}
+function(key,values,rereduce){
+    return sum(values);
+}
+
+// solve foreign people the active time
+function(doc){
+    if(doc.lang != "en"){
+        date_time = doc.created_at.split(" ");
+        time = date_time[3];
+        hour = (((time.split(":")[0]) - 4) + 24) % 24;
+        emit([hour,doc.lang],1);
+    }
+}
+function(key,values,rereduce){
+    return sum(values);
+}
