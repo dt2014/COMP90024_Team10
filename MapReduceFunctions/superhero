@@ -17,3 +17,23 @@ function(key,values,rereduce){
 }
 
 //return will be the counting of tweets mentioned superhero with positive sentiment
+
+
+//----------------------------------------------------------------------------------------------------
+// Gather the count of popular superhero from 3 different couchdb
+
+function(doc)
+{
+    if(doc.superhero){
+        var items = doc.superhero.rows;
+        for(i in items){
+            var key = items[i].key;
+            var value = items[i].value;
+            emit(key,value)
+        }
+    }
+}
+
+function(key,value){
+    return sum(value);
+}

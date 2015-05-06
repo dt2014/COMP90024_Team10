@@ -1,0 +1,48 @@
+function(doc){
+    var keywords = ["avenue","street","drive","lane","highway","motoway","freeway","highway","driveway","cross","traffic","jam","congestoin","controlflow","sarl","detour","ave","rd","st","ln","dr","way","blvd","road"];
+    var words = doc.text.toLowerCase().split(" ");
+    date_time = doc.created_at.split(" ");
+    time = date_time[3];
+    hour = (((time.split(":")[0]) - 4) + 24) % 24;
+    for(i in words) {
+        if(keywords.indexOf(words[i]) > -1){
+            if(doc.sentiment == "Negative"){
+                emit([doc.districts,hour],1);
+                break;
+            }
+        }
+    }
+
+}
+
+
+function(key,values,rereduce){
+    return sum(values);
+}
+
+//return will be the number of complaints about the traffic in different districts
+
+
+
+
+//---------------------------/---------------------------/---------------------------/--------------------------
+// Gather the result of the above funtion from 3 different couchdb
+
+function(doc){
+    if(doc.trafficHappinessByDistrictByHour){
+        var items = doc.trafficHappinessByDistrictByHour.rows;
+        for(i in items){
+
+            //Following depends on which district you want !!!! LOOK HERER
+            if(items[i].key[0] == "Queens"){
+                var hour = items[i].key[1]
+                var compliaintNum = items[i].value;
+                emit(hour,compliaintNum);
+            }
+        }
+    }
+}
+
+function(key,value){
+    return sum(value);
+}

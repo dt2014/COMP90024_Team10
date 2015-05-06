@@ -89,11 +89,14 @@ def cloestDistrict(latLon):
 
 def calculateDistrict(doc):
     length = 0
-    latLon = []
-    if(doc['geo'] != None):
-        latLon = doc['geo']['coordinates']
-    else:
-        latLon = doc['retweeted_status']['geo']['coordinates']
+    latLon = [40.761368, -73.801841]
+    if('geo' in doc and doc['geo'] != None):
+        if('coordinates' in doc['geo'] and doc['geo']['coordinates'] !=None):
+            latLon = doc['geo']['coordinates']
+    elif('retweeted_status' in doc and doc['retweeted_status'] != None):
+        if('geo' in doc['retweeted_status'] and doc['retweeted_status']['geo'] !=None):
+            if('coordinates' in doc['retweeted_status']['geo'] and doc['retweeted_status']['geo']['coordinates'] != None):
+                latLon = doc['retweeted_status']['geo']['coordinates']
     district =  testInsidePologon(latLon)
     length = len(district)
     # Solve district overlap problem
@@ -105,7 +108,7 @@ def calculateDistrict(doc):
     else:
         district = district[0]
     return district
-'''
+
 couch = couchdb.Server()
 db = couch['new_york']
 count = 0
@@ -116,4 +119,3 @@ for fid in db:
     print 'district = ', district
     if count > 10:
         break
-'''

@@ -4,23 +4,21 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
-\f0\fs32 \cf0 // This function is for output the happiness of the a specific district in  New York in 24 hour to access different district need to change  == 
+\f0\fs32 \cf0 // This function is for output the happiness of the a specific time in  New York in 24 hour to access different district need to change  == 
 \f1\fs24 \
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
-\cf0 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
-\cf0 function(doc)\{\
+\
+function(doc)\{\
         //For different district Change the doc.district\
-	if(doc.district == "Queens")\{	  \
+	if(doc.districts)\{	  \
 		if(doc.sentiment)\{\
       			date_time = doc.created_at.split(" ");\
         	 		time = date_time[3];\
       	 		hour = (((time.split(":")[0]) - 4) + 24) % 24;\
       			if(doc.sentiment == "Positive")\{\
-	 			emit (hour, 1);\
+	 			emit ([doc.districts,hour], 1);\
 			\}else\{\
-				emit (hour, 0);\
+				emit ([doc.districts,hour], 0);\
 			\}\
   		\}\
 	\}\
@@ -37,4 +35,39 @@ function(keys, values, rereduce) \{\
             \}))\
         return [avg, length]\
     \}\
-\}}
+\}\
+\
+\
+//To gather 3 different database result of above function\
+\
+function(doc)\{\
+        //For different district Change the doc.district\
+	if(doc.HappinessBy24HourByDistricts)\{	  \
+		var items = doc.HappinessBy24HourByDistricts.rows;\
+		for (i in items)\
+		\{\
+			var key = items[i].key;\
+			var value = items[i].value;\
+			\
+			// Depends on which district you want!!!!!!!!!!!!!!!!!!!!!!!!!!!! LOOK HERE\
+			if(key[0] == "Bronx")\
+				emit(key[1],value[0]);\
+		\} \
+	\}\
+\}\
+\
+function(key,value)\
+\{\
+	return sum(value);\
+\}\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

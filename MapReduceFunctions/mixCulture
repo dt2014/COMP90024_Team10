@@ -5,13 +5,13 @@
 function(doc){
     if(doc.lang != "en"){
         if(doc.geo != null){
-            var lat = parseFloat(doc.geo.coordinates[0]).toFixed(2)
-            var lon = parseFloat(doc.geo.coordinates[1]).toFixed(2)
+            var lat = parseFloat(doc.geo.coordinates[0]).toFixed(1)
+            var lon = parseFloat(doc.geo.coordinates[1]).toFixed(1)
             emit([doc.lang,[lat,lon]],1);
 
         }else{
-            var lat = parseFloat(doc.retweeted_status.geo.coordinates[0]).toFixed(2)
-            var lon = parseFloat(doc.retweeted_status.geo.coordinates[1]).toFixed(2)
+            var lat = parseFloat(doc.retweeted_status.geo.coordinates[0]).toFixed(1)
+            var lon = parseFloat(doc.retweeted_status.geo.coordinates[1]).toFixed(1)
             emit([doc.lang,[lat,lon]],1);
         }
     }
@@ -32,3 +32,34 @@ function(doc){
 function(key,values,rereduce){
     return sum(values);
 }
+
+
+//---------------------------------------------------------------------------------------------------------------
+// To gather the result of the above funtions from 3 different couchdb database
+
+function(doc){
+    if(doc.mixCulture){
+        var items = doc.mixCulture.rows;
+        for (i in items){
+            var nation = items[i].key[0];
+            //THE FOLLOWING ARGUMENT FOR IF CONDITION CAN BE CHANGED TO THE NATION YOU INTERESTED
+            if(nation == "ar"){
+                var coordinate = items[i].key[1];
+                var value = items[i].value;
+                emit(coordinate,value);
+            }
+        }
+    }
+}
+
+function(key,value){
+    return sum(value);
+}
+
+
+
+
+
+
+
+

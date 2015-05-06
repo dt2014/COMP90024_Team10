@@ -1,0 +1,32 @@
+//study the source of the tweet to see whether it is from iphone or android phone in order to see
+//new york people is more prefer to use iphone or android
+
+function(doc) {
+    var source = doc.source;
+    if(source.search("Android") > -1)
+        emit("Android",1);
+    if(source.search("iPhone") > -1)
+        emit("iPhone",1);
+}
+
+function(key,values,rereduce){
+    return sum(values);
+}
+
+//-----------------------------------------------------------------------------------------------------
+
+function(doc)
+{
+    if(doc.iPhoneAndroid){
+        var items = doc.iPhoneAndroid.rows;
+        for(i in items){
+            var key = items[i].key;
+            var value = items[i].value;
+            emit(key,value)
+        }
+    }
+}
+
+function(key,value){
+    return sum(value);
+}

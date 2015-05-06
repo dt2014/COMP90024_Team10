@@ -1,0 +1,36 @@
+//study the most negative celebrities, we define celebrities as an account with more than 500K follower, and see who send the most negative information, and we will to ask him/her not to do that via tweet after we found out who.
+
+
+function(doc) {
+    if(doc.user.followers_count >= 500000)
+    {
+        if(doc.sentiment == "Negative"){
+            emit(doc.user.screen_name ,1);
+        }
+    }
+}
+
+
+function(key,values,rereduce){
+    return sum(values);
+}
+
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+function(doc)
+{
+    if(doc.celebrityNegative){
+        var items = doc.celebrityNegative.rows;
+        for(i in items){
+            var key = items[i].key;
+            var value = items[i].value;
+            emit(key,value)
+        }
+    }
+}
+
+function(key,value){
+    return sum(value);
+}

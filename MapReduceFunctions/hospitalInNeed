@@ -21,3 +21,23 @@ function(doc){
 
 
 //return will be the coordinate that people saying they fell sick
+
+
+//---------------------------------------------------------------------------------------
+//Function for gather the result of the above funtion 3 different couchdb database
+
+function(doc) {
+    if(doc.hospitalInNeed){
+        var items = doc.hospitalInNeed.rows;
+        for (i in items){
+            var key = items[i].key;
+            var value = items[i].value;
+            emit(key,value);
+        }
+    }
+
+}
+
+function(key,value){
+    return sum(value);
+}
