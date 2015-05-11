@@ -1,0 +1,20 @@
+{
+	"appConfig" : {
+	
+	},
+	
+	"dbConfig" : {
+		"dbHost" : "127.0.0.1",
+		"dbPort" : 5984,
+		"dbName" : "/stream_ny/"
+	},
+	
+	"queryConfig" : {
+		"OAuthConsumerKey" : "",
+		"OAuthConsumerSecret" : "",
+		"OAuthAccessToken" : "",
+		"OAuthAccessTokenSecret" : "",
+		"boundingBox" : {"lon1": -74.255641, "lat1": 40.495865, "lon2": -73.699793, "lat2": 40.91533}
+	}
+	
+}
