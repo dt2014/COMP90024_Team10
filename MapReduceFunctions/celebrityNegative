@@ -2,7 +2,7 @@
 
 
 function(doc) {
-    if(doc.user.followers_count >= 500000)
+    if(doc.user.followers_count >= 100000)
     {
         if(doc.sentiment == "Negative"){
             emit(doc.user.screen_name ,1);

@@ -41,29 +41,24 @@ function(keys, values, rereduce) \{\
 //To gather 3 different database result of above function\
 \
 function(doc)\{\
-        //For different district Change the doc.district\
 	if(doc.HappinessBy24HourByDistricts)\{	  \
 		var items = doc.HappinessBy24HourByDistricts.rows;\
 		for (i in items)\
 		\{\
 			var key = items[i].key;\
 			var value = items[i].value;\
-			\
-			// Depends on which district you want!!!!!!!!!!!!!!!!!!!!!!!!!!!! LOOK HERE\
-			if(key[0] == "Bronx")\
-				emit(key[1],value[0]);\
+			emit(key,value);\
 		\} \
 	\}\
 \}\
 \
-function(key,value)\
-\{\
-	return sum(value);\
+\
+function(keys, values, rereduce) \{\
+    \
+      var length = values.length;\
+      return [sum(values.map(function(v)\{return v[0]\})) / length,sum(values.map(function(v)\{return v[1]\}))]\
+    \
 \}\
-\
-\
-\
-\
 \
 \
 \

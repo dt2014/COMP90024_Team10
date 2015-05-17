@@ -3,7 +3,7 @@
 
 // solve are they live together
 function(doc){
-    if(doc.lang != "en"){
+    if(doc.lang != "en" && doc.lang != "und"){
         if(doc.geo != null){
             var lat = parseFloat(doc.geo.coordinates[0]).toFixed(1)
             var lon = parseFloat(doc.geo.coordinates[1]).toFixed(1)
@@ -22,7 +22,7 @@ function(key,values,rereduce){
 
 // solve foreign people the active time
 function(doc){
-    if(doc.lang != "en"){
+    if(doc.lang != "en" && doc.lang != "und"){
         date_time = doc.created_at.split(" ");
         time = date_time[3];
         hour = (((time.split(":")[0]) - 4) + 24) % 24;
@@ -41,13 +41,9 @@ function(doc){
     if(doc.mixCulture){
         var items = doc.mixCulture.rows;
         for (i in items){
-            var nation = items[i].key[0];
-            //THE FOLLOWING ARGUMENT FOR IF CONDITION CAN BE CHANGED TO THE NATION YOU INTERESTED
-            if(nation == "ar"){
-                var coordinate = items[i].key[1];
-                var value = items[i].value;
-                emit(coordinate,value);
-            }
+            var key = items[i].key;
+            var value = items[i].value;
+            emit(key,value);
         }
     }
 }

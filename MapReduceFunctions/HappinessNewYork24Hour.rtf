@@ -45,4 +45,12 @@ function(doc)\{\
 	    		emit(items[i].key,items[i].value);\
 		\}	\
   	\}\
+\}\
+\
+\
+function(keys, values, rereduce) \{\
+    \
+      var length = values.length;\
+      return [sum(values.map(function(v)\{return v[0]\})) / length,sum(values.map(function(v)\{return v[1]\}))]\
+    \
 \}}

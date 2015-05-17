@@ -1,0 +1,37 @@
+function(doc){
+    var keywords = ["Hillary Clinton","Bernie Sanders","Jeff Boss","Robby Wells","Ben Carson","Ted Cruz","Carly Fiorina","Mike Huckabee","Rand Paul","Marco Rubio"];
+    var text = doc.text;
+    for(i in keywords) {
+        if(text.search(keywords[i]) > -1){
+            if(doc.sentiment == "Positive"){
+                emit(keywords[i],1);
+            }
+        }
+    }
+
+}
+
+function(key,values,rereduce){
+    return sum(values);
+}
+
+//return will be the counting of tweets mentioned NBA teams
+
+
+//----------------------------------------------------------------------------------------------------
+// Gather the result of the above funtion from 3 couchdb
+
+function(doc){
+    if(doc.USPresidentialElection){
+        var items = doc.USPresidentialElection.rows;
+        for(i in items){
+            var key = items[i].key;
+            var value = items[i].value;
+            emit(key,value);
+        }
+    }
+}
+
+function(key,value){
+    return sum(value);
+}

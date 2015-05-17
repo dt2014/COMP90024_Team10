@@ -52,7 +52,7 @@ for i in range(1,4):
 
 # Get the couchdb database
 couch = couchdb.Server()
-db = couch['new_york']
+db = couch['ny3']
 
 answer = {1:'Positive',-1:'Negative',0:'Neutral'}
 

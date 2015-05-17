@@ -32,13 +32,9 @@ function(doc){
     if(doc.trafficHappinessByDistrictByHour){
         var items = doc.trafficHappinessByDistrictByHour.rows;
         for(i in items){
-
-            //Following depends on which district you want !!!! LOOK HERER
-            if(items[i].key[0] == "Queens"){
-                var hour = items[i].key[1]
-                var compliaintNum = items[i].value;
-                emit(hour,compliaintNum);
-            }
+            var hour = items[i].key;
+            var compliaintNum = items[i].value;
+            emit(hour,compliaintNum);
         }
     }
 }
