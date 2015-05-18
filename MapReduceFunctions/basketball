@@ -1,3 +1,14 @@
+/*
+* Team 10
+* New York
+* Fengmin Deng      659332
+* Jiajie Li         631482
+* Shuangchao Yin    612511
+* Weijia Chen       616213
+* Yun Shi           621761
+*/
+
+
 function(doc){
     var keywords = ["Celtics","Nets","Knicks","76ers","Raptors","Warriors","Clippers","Lakers","Suns","Kings","Bulls","Cavaliers","Pistons","Pacers","Bucks","Mavericks","Rockets","Grizzlies","Pelicans","Spurs","Hawks","Hornets","Heat","Magic","Wizards","Nuggets","Timberwolves","Thunder","Blazers","Jazz"];
     var text = doc.text

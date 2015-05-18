@@ -1,3 +1,14 @@
+/*
+* Team 10
+* New York
+* Fengmin Deng      659332
+* Jiajie Li         631482
+* Shuangchao Yin    612511
+* Weijia Chen       616213
+* Yun Shi           621761
+*/
+
+
 function(doc){
 var keywords = ["Antman","Aquaman","Aqualad","Batman","Batwing","Beast Boy","Betty Ross","Black Widow","Blink","Captain America","Captain Atom","Catwoman","Dr. Strange","Green Arrow","Groot","Hulk","Iceman","Iron Man","Professor X","Spider-Man","spider man","Thor","Superman","Doctor Who","Mister Fantastic","Wolverine","Wonder Woman","Green Lantern"];
     var text = doc.text.toLowerCase();

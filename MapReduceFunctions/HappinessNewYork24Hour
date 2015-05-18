@@ -1,0 +1,61 @@
+/*
+ * Team 10
+ * New York
+ * Fengmin Deng      659332
+ * Jiajie Li         631482
+ * Shuangchao Yin    612511
+ * Weijia Chen       616213
+ * Yun Shi           621761
+ */
+
+
+
+
+
+// This function is for output the happiness of the whole New York in 24 hour
+function(doc){
+    if(doc.sentiment){
+        date_time = doc.created_at.split(" ");
+        time = date_time[3];
+        hour = (((time.split(":")[0]) - 4) + 24) % 24;
+        if(doc.sentiment == "Positive"){
+            emit (hour, 1);
+        }
+        else{
+            emit (hour, 0);
+        }
+    }
+}
+
+function(keys, values, rereduce) {
+    if (!rereduce){
+        var length = values.length
+        return [sum(values) / length, length]
+    }else{
+        var length = sum(values.map(function(v){return v[1]}))
+        var avg = sum(values.map(function(v){
+        return v[0] * (v[1] / length)
+    }))
+    return [avg, length]
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//The gather function for combining the result of the above function from 3 different couchdb db
+// remember to add 3 documents in the target database and add a field key HappinessNewYork24Hour value is the json
+
+function(doc){
+    if(doc.HappinessNewYork24Hour){
+        var items = doc.HappinessNewYork24Hour.rows;
+        for(i in items){
+            emit(items[i].key,items[i].value);
+        }
+    }
+}
+
+
+function(keys, values, rereduce) {
+
+    var length = values.length;
+    return [sum(values.map(function(v){return v[0]})) / length,sum(values.map(function(v){return v[1]}))]
+
+}

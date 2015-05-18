@@ -1,3 +1,13 @@
+'''
+    * Team 10
+    * New York
+    * Fengmin Deng      659332
+    * Jiajie Li         631482
+    * Shuangchao Yin    612511
+    * Weijia Chen       616213
+    * Yun Shi           621761
+'''
+
 # -*- coding: utf-8 -*-
 import nltk 
 import csv 
