@@ -1,8 +1,19 @@
 package team10;
 
 /*
- * @author Fengmin Deng
+    Team: 10
+    City: New York
+    Students: 
+    	Full Names  		Student IDs
+   		Shuangchao Yin  	612511
+    	Weijia Chen  		616213
+    	Yun Shi  			621761
+    	Jiajie Li 			631482
+    	Fengmin Deng  		659332
  */
+
+
+
 
 public final class Constants {
 	

@@ -1,11 +1,15 @@
 package team10;
 
 /*
- * @author Fengmin Deng
- * 
- * This verticle is for organizing and sending query requests for twitter Search
- * API. The search line could be either backwards or forwards by indicating either
- * "next_results" or "refresh_url" for the URL type in the configuration file.
+    Team: 10
+    City: New York
+    Students: 
+    	Full Names  		Student IDs
+   		Shuangchao Yin  	612511
+    	Weijia Chen  		616213
+    	Yun Shi  			621761
+    	Jiajie Li 			631482
+    	Fengmin Deng  		659332
  */
 
 import org.vertx.java.core.eventbus.EventBus;

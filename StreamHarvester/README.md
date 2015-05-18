@@ -1,10 +1,21 @@
-# Streaming Tweets Harvester
+    Team: 10
+    City: New York
+    Students: 
+    	Full Names  		Student IDs
+   		Shuangchao Yin  	612511
+    	Weijia Chen  		616213
+    	Yun Shi  			621761
+    	Jiajie Li 			631482
+    	Fengmin Deng  		659332
 
+
+# Streaming Tweets Harvester
 ----------
 A system that harvests tweets using twitter Stream API.
 
 ## Enviroment Requirements ##
 For installing and launching the system, these tools/environments are needed:
+
 - JDK 1.7 or above
 - Vert.x 2.1.5 or above
 - Maven
@@ -34,4 +45,10 @@ For installing and launching the system, these tools/environments are needed:
   - **"lat1"**: 40.495865
   - **"lon2"**: -73.699793
   - **"lat2"**: 40.91533
+
+## The executable files ##
+There are two pre-built executable files in this folder. There are basically for those who want to run directly the harvester program but not having maven or vertx installed.
+
+- StreamHarvester-0.1-mod.zip
+- StreamHarvester-0.1-fat.jar
 

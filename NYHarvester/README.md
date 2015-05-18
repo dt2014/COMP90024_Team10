@@ -1,3 +1,14 @@
+    Team: 10
+    City: New York
+    Students: 
+    	Full Names  		Student IDs
+   		Shuangchao Yin  	612511
+    	Weijia Chen  		616213
+    	Yun Shi  			621761
+    	Jiajie Li 			631482
+    	Fengmin Deng  		659332
+
+
 # Tweets Harvester
 ----------
 A system that harvests tweets using twitter Search API.
@@ -42,4 +53,10 @@ For installing and launching the system, these tools/environments are needed:
 - **"urlType"**: Either "refresh_url" for harvesting newer tweets or "next_results" for harvesting older tweets in the next round of search,here 'new' and 'old' are in terms of time line when tweets are created in twitter
 - **"timeout"**: The timeout in milliseconds for replies from query verticle
 - **"interval"**: The maximum interval in milliseconds to query twitter without exceeding the rate limit (450 Requests / 15-min window for Application-only authentication)
-- **"tag"**: The tag is used to label search region, instance identifier etc  
+- **"tag"**: The tag is used to label search region, instance identifier etc
+
+## The executable files ##
+There are two pre-built executable files in this folder. There are basically for those who want to run directly the harvester program but not having maven or vertx installed.
+
+- NYHarvester-0.2-mod.zip
+- NYHarvester-0.2-fat.jar 

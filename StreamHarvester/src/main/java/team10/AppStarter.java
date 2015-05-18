@@ -1,11 +1,15 @@
 package team10;
 
 /*
- * @author Fengmin Deng
- * 
- * This verticle is for deloying the verticles in this application. Firstly
- * the log verticle, then remove-duplicate (tweets) verticle, and database
- * verticle and finally the query verticle.
+    Team: 10
+    City: New York
+    Students: 
+    	Full Names  		Student IDs
+   		Shuangchao Yin  	612511
+    	Weijia Chen  		616213
+    	Yun Shi  			621761
+    	Jiajie Li 			631482
+    	Fengmin Deng  		659332
  */
 
 import org.vertx.java.core.AsyncResult;
@@ -14,7 +18,10 @@ import org.vertx.java.core.json.JsonObject;
 import org.vertx.java.core.logging.Logger;
 import org.vertx.java.platform.Verticle;
 
-
+/*
+ * This verticle is for deloying the verticles in this application. Firstly
+ * the database verticle, then queryverticle.
+ */
 public class AppStarter extends Verticle {
 
 	public void start() {

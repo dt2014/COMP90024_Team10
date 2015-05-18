@@ -1,9 +1,15 @@
 package team10;
 
 /*
- * @author Fengmin Deng
- * 
- * This verticle is responsible for logging for the application.
+    Team: 10
+    City: New York
+    Students: 
+    	Full Names  		Student IDs
+   		Shuangchao Yin  	612511
+    	Weijia Chen  		616213
+    	Yun Shi  			621761
+    	Jiajie Li 			631482
+    	Fengmin Deng  		659332
  */
 
 import org.vertx.java.core.Handler;
@@ -13,6 +19,9 @@ import org.vertx.java.core.json.JsonObject;
 import org.vertx.java.core.logging.Logger;
 import org.vertx.java.platform.Verticle;
 
+/*
+ * This verticle is responsible for logging for the application.
+ */
 public class LogVerticle extends Verticle {
 
 	public void start() {

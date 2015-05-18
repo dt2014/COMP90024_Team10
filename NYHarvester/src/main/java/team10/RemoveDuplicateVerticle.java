@@ -1,12 +1,15 @@
 package team10;
 
 /*
- * @author Fengmin Deng
- * 
- * This verticle is for putting only an id as a document in a centralized 
- * CouchDB database which is for preventing storing duplicated tweets.
- * Only a tweet with an id saved successfully in the id-only database would be
- * stored for sentimental analysis.
+    Team: 10
+    City: New York
+    Students: 
+    	Full Names  		Student IDs
+   		Shuangchao Yin  	612511
+    	Weijia Chen  		616213
+    	Yun Shi  			621761
+    	Jiajie Li 			631482
+    	Fengmin Deng  		659332
  */
 
 import org.vertx.java.core.Handler;
@@ -19,6 +22,12 @@ import org.vertx.java.core.json.JsonObject;
 import org.vertx.java.core.logging.Logger;
 import org.vertx.java.platform.Verticle;
 
+/* 
+ * This verticle is for putting only an id as a document in a centralized 
+ * CouchDB database which is for preventing storing duplicated tweets.
+ * Only a tweet with an id saved successfully in the id-only database would be
+ * stored for sentimental analysis.
+ */
 public class RemoveDuplicateVerticle extends Verticle {
 
 	private int dbInsertFailCounter = 0;

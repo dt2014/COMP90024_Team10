@@ -1,13 +1,30 @@
-COMP90024_Cluster_and_Cloud_Computing Assignment2 Team10
+    Team: 10
+    City: New York
+    Students: 
+    	Full Names  		Student IDs
+   		Shuangchao Yin  	612511
+    	Weijia Chen  		616213
+    	Yun Shi  			621761
+    	Jiajie Li 			631482
+    	Fengmin Deng  		659332
+
+COMP90024 Cluster and Cloud Computing Assignment2
 ==============
 
-##Overview
-This repository contains the source for COMP90024 Project of team10. 
-- Author: Team10
-- GitHub: 
+This repository contains the source code for COMP90024 Project of team10. 
 
 ##Directory Structure
-There are one Twitter Harvester, one Ansible script and ... in this directory. Some sub-directories contain a ReadMe file for the details of that application.
+These are the componets in the project:
+
+- Ansible script 
+- Twitter Harvester for Search API
+- Twitter Harvester for Stream API
+- Scripts to process the tweets records for adding attributes: sentiment and district
+- MapReduce functions for CouchDB
+- Web Service
+
+
+Some sub-directories contain a ReadMe file for the details of that application.
 
 
 
