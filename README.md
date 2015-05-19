@@ -11,7 +11,12 @@
 COMP90024 Cluster and Cloud Computing Assignment2
 ==============
 
-This repository contains the source code for COMP90024 Project of team10. 
+##Overview
+
+This repository contains the source code for COMP90024 Project of team10.
+
+- Web interface: http://144.6.227.103/
+- Source code: https://github.com/dt2014/COMP90024_Team10 
 
 ##Directory Structure
 These are six components in the project:
