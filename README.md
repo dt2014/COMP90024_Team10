@@ -14,7 +14,7 @@ COMP90024 Cluster and Cloud Computing Assignment2
 This repository contains the source code for COMP90024 Project of team10. 
 
 ##Directory Structure
-These are the componets in the project:
+These are six components in the project:
 
 - Ansible script 
 - Twitter Harvester for Search API
