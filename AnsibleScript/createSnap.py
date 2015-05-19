@@ -1,4 +1,4 @@
-/*
+'''
 * Team 10
 * New York
 * Fengmin Deng      659332
@@ -6,7 +6,7 @@
 * Shuangchao Yin    612511
 * Weijia Chen       616213
 * Yun Shi           621761
-*/
+'''
 import boto
 from boto.ec2.regioninfo import RegionInfo
 
