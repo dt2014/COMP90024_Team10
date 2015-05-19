@@ -1,0 +1,9 @@
+[hostName]
+115.146.87.248
+144.6.227.151
+144.6.227.103
+144.6.227.57
+
+[cloudHost:vars]
+ansible_ssh_user=ubuntu
+ansible_ssh_private_key_file=/Users/jacky/Desktop/cloudKey.key
