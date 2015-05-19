@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment2/Team10</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jsapi.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCwAlBNubt45g6_8TFl3NmO77uz8WONP0s&sensor=false"></script>
+<script>
+var x=new google.maps.LatLng(40.673635, -73.994787);
+
+var Staten1=new google.maps.LatLng(40.645930, -74.185099);
+var Staten2=new google.maps.LatLng(40.644497, -74.126562);
+var Staten3=new google.maps.LatLng(40.653874, -74.043564);
+var Staten4=new google.maps.LatLng(40.626746, -74.053488);
+var Staten5=new google.maps.LatLng(40.555833, -74.032888);
+var Staten6=new google.maps.LatLng(40.510334, -74.042878);
+var Staten7=new google.maps.LatLng(40.479004, -74.231705);
+var Staten8=new google.maps.LatLng(40.498848, -74.262604);
+var Staten9=new google.maps.LatLng(40.522863, -74.246125);
+var Staten10=new google.maps.LatLng(40.549477, -74.250244);
+var Staten11=new google.maps.LatLng(40.559911, -74.219345);
+var Staten12=new google.maps.LatLng(40.599024, -74.198059);
+var Staten13=new google.maps.LatLng(40.630429, -74.202694);
+var myTrip_Staten=[Staten1,Staten2,Staten3,Staten4,Staten5,Staten6,Staten7,Staten8,Staten9,Staten10,Staten11,Staten12,Staten13,Staten1];
+
+var Manhattan1=new google.maps.LatLng(40.881564, -73.933525);
+var Manhattan2=new google.maps.LatLng(40.874555, -73.906403);
+var Manhattan3=new google.maps.LatLng(40.835603, -73.932839);
+var Manhattan4=new google.maps.LatLng(40.804166, -73.929406);
+var Manhattan5=new google.maps.LatLng(40.792990, -73.910866);
+var Manhattan6=new google.maps.LatLng(40.776873, -73.936615);
+var Manhattan7=new google.maps.LatLng(40.771673, -73.935929);
+var Manhattan8=new google.maps.LatLng(40.743066, -73.961678);
+var Manhattan9=new google.maps.LatLng(40.723868, -73.961820);
+var Manhattan10=new google.maps.LatLng(40.708255, -73.970747);
+var Manhattan11=new google.maps.LatLng(40.704872, -73.994093);
+var Manhattan12=new google.maps.LatLng(40.680923, -74.018125);
+var Manhattan13=new google.maps.LatLng(40.685869, -74.033918);
+var Manhattan14=new google.maps.LatLng(40.757631, -74.013863);
+var Manhattan15=new google.maps.LatLng(40.708462, -73.971291);
+var myTrip_Manhattan=[Manhattan1,Manhattan2,Manhattan3,Manhattan4,Manhattan5,Manhattan6,Manhattan7,Manhattan8,Manhattan9,Manhattan10,Manhattan11,Manhattan12,Manhattan13,Manhattan14,Manhattan14,Manhattan1];
+
+var Brooklyn1=new google.maps.LatLng(40.738230, -73.961606);
+var Brooklyn2=new google.maps.LatLng(40.729332, -73.929205);
+var Brooklyn3=new google.maps.LatLng(40.683526, -73.896932);
+var Brooklyn4=new google.maps.LatLng(40.695501, -73.869810);
+var Brooklyn5=new google.maps.LatLng(40.660612, -73.857450);
+var Brooklyn6=new google.maps.LatLng(40.658268, -73.863973);
+var Brooklyn7=new google.maps.LatLng(40.643160, -73.855390);
+var Brooklyn8=new google.maps.LatLng(40.629873, -73.834448);
+var Brooklyn9=new google.maps.LatLng(40.589735, -73.851614);
+var Brooklyn10=new google.maps.LatLng(40.573568, -73.890066);
+var Brooklyn11=new google.maps.LatLng(40.555833, -74.032888);
+var Brooklyn12=new google.maps.LatLng(40.626746, -74.053488);
+var Brooklyn13=new google.maps.LatLng(40.685869, -74.033918);
+var Brooklyn14=new google.maps.LatLng(40.680923, -74.018125);
+var Brooklyn15=new google.maps.LatLng(40.704872, -73.994093);
+var Brooklyn16=new google.maps.LatLng(40.708255, -73.970747);
+var Brooklyn17=new google.maps.LatLng(40.723868, -73.961820);
+var myTrip_Brooklyn=[Brooklyn1,Brooklyn2,Brooklyn3,Brooklyn4,Brooklyn5,Brooklyn6,Brooklyn7,Brooklyn8,Brooklyn9,Brooklyn10,Brooklyn11,Brooklyn12,Brooklyn13,Brooklyn14,Brooklyn15,Brooklyn16,Brooklyn17,Brooklyn1];
+
+var Bronx1=new google.maps.LatLng(40.915261, -73.910108);
+var Bronx2=new google.maps.LatLng(40.901510, -73.859296);
+var Bronx3=new google.maps.LatLng(40.907997, -73.853117);
+var Bronx4=new google.maps.LatLng(40.904623, -73.841787);
+var Bronx5=new google.maps.LatLng(40.894243, -73.838697);
+var Bronx6=new google.maps.LatLng(40.883342, -73.794065);
+var Bronx7=new google.maps.LatLng(40.879968, -73.781705);
+var Bronx8=new google.maps.LatLng(40.856082, -73.763509);
+var Bronx9=new google.maps.LatLng(40.803217, -73.790288);
+var Bronx10=new google.maps.LatLng(40.795940, -73.861700);
+var Bronx11=new google.maps.LatLng(40.787623, -73.890195);
+var Bronx12=new google.maps.LatLng(40.792990, -73.910866);
+var Bronx13=new google.maps.LatLng(40.804166, -73.929406);
+var Bronx14=new google.maps.LatLng(40.835603, -73.932839);
+var Bronx15=new google.maps.LatLng(40.874555, -73.906403);
+var Bronx16=new google.maps.LatLng(40.881564, -73.933525);
+var myTrip_Bronx=[Bronx1,Bronx2,Bronx3,Bronx4,Bronx5,Bronx6,Bronx7,Bronx8,Bronx9,Bronx10,Bronx11,Bronx12,Bronx13,Bronx14,Bronx15,Bronx16,Bronx1];
+
+var Queens1=new google.maps.LatLng(40.738230, -73.961606);
+var Queens2=new google.maps.LatLng(40.743066, -73.961678);
+var Queens3=new google.maps.LatLng(40.771673, -73.935929);
+var Queens4=new google.maps.LatLng(40.776873, -73.936615);
+var Queens5=new google.maps.LatLng(40.792990, -73.910866);
+var Queens6=new google.maps.LatLng(40.787623, -73.890195);
+var Queens7=new google.maps.LatLng(40.795940, -73.861700);
+var Queens8=new google.maps.LatLng(40.803217, -73.790288);
+var Queens9=new google.maps.LatLng(40.779309, -73.746223);
+var Queens10=new google.maps.LatLng(40.752266, -73.701591);
+var Queens11=new google.maps.LatLng(40.739001, -73.699531);
+var Queens12=new google.maps.LatLng(40.727814, -73.708114);
+var Queens13=new google.maps.LatLng(40.722480, -73.730430);
+var Queens14=new google.maps.LatLng(40.700640, -73.725623);
+var Queens15=new google.maps.LatLng(40.677471, -73.726310);
+var Queens16=new google.maps.LatLng(40.663149, -73.729056);
+var Queens17=new google.maps.LatLng(40.652731, -73.725280);
+var Queens18=new google.maps.LatLng(40.648043, -73.741759);
+var Queens19=new google.maps.LatLng(40.635538, -73.741759);
+var Queens20=new google.maps.LatLng(40.625116, -73.767165);
+var Queens21=new google.maps.LatLng(40.610522, -73.755149);
+var Queens22=new google.maps.LatLng(40.611304, -73.745193);
+var Queens23=new google.maps.LatLng(40.593318, -73.737639);
+var Queens24=new google.maps.LatLng(40.537615, -73.767509);
+var Queens25=new google.maps.LatLng(40.499510, -73.889731);
+var Queens26=new google.maps.LatLng(40.526133, -73.951530);
+var Queens27=new google.maps.LatLng(40.510334, -74.042878);
+var Queens28=new google.maps.LatLng(40.555833, -74.032888);
+var Queens29=new google.maps.LatLng(40.573568, -73.890066);
+var Queens30=new google.maps.LatLng(40.589735, -73.851614);
+var Queens31=new google.maps.LatLng(40.629873, -73.834448);
+var Queens32=new google.maps.LatLng(40.643160, -73.855390);
+var Queens33=new google.maps.LatLng(40.658268, -73.863973);
+var Queens34=new google.maps.LatLng(40.660612, -73.857450);
+var Queens35=new google.maps.LatLng(40.695501, -73.869810);
+var Queens36=new google.maps.LatLng(40.683526, -73.896932);
+var Queens37=new google.maps.LatLng(40.729332, -73.929205);
+var myTrip_Queens=[Queens1,Queens2,Queens3,Queens4,Queens5,Queens6,Queens7,Queens8,Queens9,Queens10,Queens11,Queens12,Queens13,Queens14,Queens15,Queens16,Queens17,Queens18,Queens19,Queens20,Queens21,Queens22,Queens23,Queens24,Queens25,Queens26,Queens27,Queens28,Queens29,Queens30,Queens31,Queens32,Queens33,Queens34,Queens35,Queens36,Queens37,Queens1];
+
+
+var Manhattan_center=new google.maps.LatLng(40.791605, -73.959961);
+var Brooklyn_center=new google.maps.LatLng(40.623880, -73.952207);
+var Queens_center=new google.maps.LatLng(40.679404, -73.790854);
+var Staten_center=new google.maps.LatLng(40.582860, -74.162611);
+var Bronx_center=new google.maps.LatLng(40.845607, -73.861611);
+
+var linegraphData;
+var onmap;
+
+function getData1(str)
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+
+xmlhttp.onreadystatechange=function()
+{
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      linegraphData=JSON.parse(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET","index_traffic.php?q="+str,false);
+xmlhttp.send();
+}
+
+function getData2(str)
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+
+xmlhttp.onreadystatechange=function()
+{
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      onmap=JSON.parse(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET","index_traffic.php?q="+str,false);
+xmlhttp.send();
+}
+
+addEventListener("load",getData1('firstq'));
+addEventListener("load",getData2('secondq'));
+
+function initialize()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var area_Manhattan=new google.maps.Polygon({
+  path:myTrip_Manhattan,
+  position:Manhattan_center,
+  strokeColor:"#FF0000",
+  strokeOpacity:0,
+  strokeWeight:0,
+  fillColor:"#FF0000",
+  fillOpacity:0
+  });
+
+var area_Staten=new google.maps.Polygon({
+  path:myTrip_Staten,
+  position:Staten_center,
+  strokeColor:"#FF21F7",
+  strokeOpacity:0,
+  strokeWeight:0,
+  fillColor:"#FF21F7",
+  fillOpacity:0
+  });
+
+var area_Brooklyn=new google.maps.Polygon({
+  path:myTrip_Brooklyn,
+  position:Brooklyn_center,
+  strokeColor:"#FFA9FB",
+  strokeOpacity:0,
+  strokeWeight:0,
+  fillColor:"#FFA9FB",
+  fillOpacity:0
+  });
+
+var area_Bronx=new google.maps.Polygon({
+  path:myTrip_Bronx,
+  position:Bronx_center,
+  strokeColor:"#FFEDFE",
+  strokeOpacity:0,
+  strokeWeight:0,
+  fillColor:"#FFEDFE",
+  fillOpacity:0
+  });
+
+var area_Queens=new google.maps.Polygon({
+  path:myTrip_Queens,
+  position:Queens_center,
+  strokeColor:"#FF01A2",
+  strokeOpacity:0,
+  strokeWeight:0,
+  fillColor:"#FF01A2",
+  fillOpacity:0
+  });
+
+
+area_Manhattan.setMap(map);
+area_Staten.setMap(map);
+area_Brooklyn.setMap(map);
+area_Bronx.setMap(map);
+area_Queens.setMap(map);
+
+
+
+var Manhattan_infowindow = new google.maps.InfoWindow({
+  content:"Manhattan: "+onmap[2]
+  });
+google.maps.event.addListener(area_Manhattan, 'mousemove', function() {
+  Manhattan_infowindow.open(map,area_Manhattan);
+  area_Manhattan.setOptions({fillOpacity:0.7});
+  });
+google.maps.event.addListener(area_Manhattan, 'mouseout', function() {
+  Manhattan_infowindow.close(map,area_Manhattan);
+  area_Manhattan.setOptions({fillOpacity:0});
+  });
+
+var Staten_infowindow = new google.maps.InfoWindow({
+  content:"Staten Island: "+onmap[4]
+  });
+google.maps.event.addListener(area_Staten, 'mousemove', function() {
+  Staten_infowindow.open(map,area_Staten);
+  area_Staten.setOptions({fillOpacity:0.7});
+  });
+google.maps.event.addListener(area_Staten, 'mouseout', function() {
+  Staten_infowindow.close(map,area_Staten);
+  area_Staten.setOptions({fillOpacity:0});
+  });
+
+var Brooklyn_infowindow = new google.maps.InfoWindow({
+  content:"Brooklyn: "+onmap[1]
+  });
+google.maps.event.addListener(area_Brooklyn, 'mousemove', function() {
+  Brooklyn_infowindow.open(map,area_Brooklyn);
+  area_Brooklyn.setOptions({fillOpacity:0.7});
+  });
+google.maps.event.addListener(area_Brooklyn, 'mouseout', function() {
+  Brooklyn_infowindow.close(map,area_Brooklyn);
+  area_Brooklyn.setOptions({fillOpacity:0});
+  });
+
+var Bronx_infowindow = new google.maps.InfoWindow({
+  content:"Bronx: "+onmap[0]
+  });
+google.maps.event.addListener(area_Bronx, 'mousemove', function() {
+  Bronx_infowindow.open(map,area_Bronx);
+  area_Bronx.setOptions({fillOpacity:0.7});
+  });
+google.maps.event.addListener(area_Bronx, 'mouseout', function() {
+  Bronx_infowindow.close(map,area_Bronx);
+  area_Bronx.setOptions({fillOpacity:0});
+  });
+
+var Queens_infowindow = new google.maps.InfoWindow({
+  content:"Queens: "+onmap[3]
+  });
+google.maps.event.addListener(area_Queens, 'mousemove', function() {
+  Queens_infowindow.open(map,area_Queens);
+  area_Queens.setOptions({fillOpacity:0.7});
+  });
+google.maps.event.addListener(area_Queens, 'mouseout', function() {
+  Queens_infowindow.close(map,area_Queens);
+  area_Queens.setOptions({fillOpacity:0});
+  });
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart1);
+      function drawChart1() {
+        var data = google.visualization.arrayToDataTable(linegraphData);
+
+        var options = {
+          title: '24 hours Criticism Evaluation Analysis',
+          hAxis: {title: 'Time',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('multiline_div'));
+        chart.draw(data, options);
+      }
+</script>
+
+  <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart3);
+    function drawChart3() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Average Count", { role: "style" } ],
+        ["Bronx", onmap[0], "#3366CC"],
+        ["Brooklyn", onmap[1], "#DC3912"],
+        ["Manhattan", onmap[2], "#FF9900"],
+        ["Queens", onmap[3], "#109618"],
+        ["Staten Island", onmap[4], "#990099"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Total Criticism Evaluation Analysis",
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+  }
+</script>
+
+</head>
+<body>
+
+<!Navigation>
+<nav class="navbar navbar-inverse" role="navigation">  
+   <ul id="myTab" class="nav navbar-nav">
+      <li class="active">
+         <a href="#home" data-toggle="tab" class="navbar-brand" onclick="window.location='index.html'">Home</a>
+      </li> 
+
+      <li class="dropdown">
+         <a href="#" id="myTabDrop1" class="dropdown-toggle" 
+            data-toggle="dropdown">Entertainment 
+            <b class="caret"></b>
+         </a>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            <li><a href="#Topic11" tabindex="-1" data-toggle="tab" onclick="window.location='index_hero.html'">Superhero</a></li>
+            <li><a href="#Topic12" tabindex="-1" data-toggle="tab" onclick="window.location='index_player.html'">Sports</a></li>
+            <li><a href="#Topic13" tabindex="-1" data-toggle="tab" onclick="window.location='index_OS.html'">Smartphone</a></li>
+         </ul>
+      </li>
+
+      <li><a href="#" onclick="window.location='index_president.html'">Election</a></li>
+
+      <li><a href="#" onclick="window.location='index_traffic.html'">Traffic</a></li>
+
+      <li><a href="#" onclick="window.location='index_sentiment.html'">Sentiment</a></li>
+
+      <li><a href="#" onclick="window.location='index_socialmedia.html'">Social Media</a></li>
+      
+      <li><a href="#" onclick="window.location='index_cluster.html'">Language/Culture</a></li>
+
+      <li><a href="#" onclick="window.location='index_ill.html'">Environmental/Health</a></li>
+
+      <li><a href="#" onclick="window.location='index_immediate.html'">Real-time Tweets</a></li>
+
+   </ul>
+</nav>
+
+<!text & graph>
+<div id="myTabContent1" class="tab-content">
+   <div class="tab-pane fade in active" id="home">
+      <div class="section">
+         <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <h2 class="text-inverse">24 hours Criticism Evaluation Analysis</h2>
+                <p>By analysis this subtopic of traffic topic, we try to find the twitter related to the traffic issue, and briefly, we can use the result to evaluate the traffic situation during 24 hours and provide a suggestion to increase the transportation performance in the future.</p>
+                <div class="section">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ul contenteditable="false">
+                          <li>District is presented with a line.</li>
+                          <li>The statistics is based on average complain for each hour in a day.</li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+               </div>
+               <div class="col-md-9">
+                  <div id="multiline_div" style="width: 950px; height: 580px;"></div>                
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!Page devider>
+<div class="section">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <hr>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="myTabContent3" class="tab-content" stype="height: 600px">
+   <div class="tab-pane fade in active" id="home">
+      <div class="section">
+         <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <h2 class="text-inverse">Total Criticism Evaluation Analysis</h2>
+                <p>This subtopic is mainly a comparison among five districts in New York. With this analysis, what we try to find is which district has a serious traffic issue, and this result will be also presented in the map below with different color decided by the total number.</p>
+                <div class="section">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ul contenteditable="false">
+                          <li>District is presented with a bar.</li>
+                          <li>Each bar presents the total number of complain in that district.</li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+               </div>
+               <div class="col-md-9">
+                  <div id="barchart_values" style="padding-left: 100px; width: 900px; height: 550px;"></div>                
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<!Map>
+<div class="section" style="background-image:url('bgp2.jpg');">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h2 class="text-center text-inverse">Show Result in Map</h2>
+            <p class="text-center">Spatial distribution of average complaint<br></p>      
+            <div class="section">
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                      <div id="googleMap" style="width:750px;height:530px;">
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      Low<br/>
+                      <img src="icon_color.png" alt="icon"><br/>
+                      High
+                    </div>
+                </div>
+              </div>
+            </div>                
+         </div>
+      </div>
+   </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+         <div class="col-md-12">
+            <hr>
+         </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>

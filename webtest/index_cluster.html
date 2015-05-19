@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment2/Team10</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jsapi.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCwAlBNubt45g6_8TFl3NmO77uz8WONP0s&sensor=false"></script>
+<script>
+var x=new google.maps.LatLng(40.673635, -73.994787);
+
+function initialize()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+
+var l1;
+function getData1(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l1=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData1('ru'));
+var p1_1=new google.maps.LatLng(parseFloat(l1[0][1][0]), parseFloat(l1[0][1][1]));
+var p1_2=new google.maps.LatLng(parseFloat(l1[1][1][0]), parseFloat(l1[1][1][1]));
+
+function initialize1()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p1_1,});
+var marker2=new google.maps.Marker({position:p1_2,});
+var myCity1 = new google.maps.Circle({
+  center:p1_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p1_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+
+var infowindow1 = new google.maps.InfoWindow({content:"Russian: "+l1[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"Russian: "+l1[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+}
+
+
+var l2;
+function getData2(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l2=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData2('zh'));
+var p2_1=new google.maps.LatLng(parseFloat(l2[0][1][0]), parseFloat(l2[0][1][1]));
+var p2_2=new google.maps.LatLng(parseFloat(l2[1][1][0]), parseFloat(l2[1][1][1]));
+
+function initialize2()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p2_1,});
+var marker2=new google.maps.Marker({position:p2_2,});
+var myCity1 = new google.maps.Circle({
+  center:p2_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p2_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+
+var infowindow1 = new google.maps.InfoWindow({content:"Chinese: "+l2[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"Chinese: "+l2[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+}
+
+
+var l3;
+function getData3(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l3=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData3('es'));
+var p3_1=new google.maps.LatLng(parseFloat(l3[0][1][0]), parseFloat(l3[0][1][1]));
+var p3_2=new google.maps.LatLng(parseFloat(l3[1][1][0]), parseFloat(l3[1][1][1]));
+var p3_3=new google.maps.LatLng(parseFloat(l3[2][1][0]), parseFloat(l3[2][1][1]));
+var p3_4=new google.maps.LatLng(parseFloat(l3[3][1][0]), parseFloat(l3[3][1][1]));
+var p3_5=new google.maps.LatLng(parseFloat(l3[4][1][0]), parseFloat(l3[4][1][1]));
+
+function initialize3()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker1=new google.maps.Marker({position:p3_1,});
+var marker2=new google.maps.Marker({position:p3_2,});
+var marker3=new google.maps.Marker({position:p3_3,});
+var marker4=new google.maps.Marker({position:p3_4,});
+var marker5=new google.maps.Marker({position:p3_5,});
+
+var myCity1 = new google.maps.Circle({
+  center:p3_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p3_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity3 = new google.maps.Circle({
+  center:p3_3,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity4 = new google.maps.Circle({
+  center:p3_4,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity5 = new google.maps.Circle({
+  center:p3_5,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var infowindow1 = new google.maps.InfoWindow({content:"Spanish: "+l3[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"Spanish: "+l3[1][2]});
+var infowindow3 = new google.maps.InfoWindow({content:"Spanish: "+l3[2][2]});
+var infowindow4 = new google.maps.InfoWindow({content:"Spanish: "+l3[3][2]});
+var infowindow5 = new google.maps.InfoWindow({content:"Spanish: "+l3[4][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+
+myCity3.setMap(map);
+marker3.setMap(map);
+google.maps.event.addListener(marker3, 'click', function() {infowindow3.open(map,marker3);});
+
+myCity4.setMap(map);
+marker4.setMap(map);
+google.maps.event.addListener(marker4, 'click', function() {infowindow4.open(map,marker4);});
+
+myCity5.setMap(map);
+marker5.setMap(map);
+google.maps.event.addListener(marker5, 'click', function() {infowindow5.open(map,marker5);});
+}
+
+
+var l4;
+function getData4(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l4=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData4('ar'));
+var p4_1=new google.maps.LatLng(parseFloat(l4[0][1][0]), parseFloat(l4[0][1][1]));
+var p4_2=new google.maps.LatLng(parseFloat(l4[1][1][0]), parseFloat(l4[1][1][1]));
+
+function initialize4()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p4_1,});
+var marker2=new google.maps.Marker({position:p4_2,});
+var myCity1 = new google.maps.Circle({
+  center:p4_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p4_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var infowindow1 = new google.maps.InfoWindow({content:"Arabic: "+l4[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"Arabic: "+l4[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+}
+
+
+
+var l5;
+function getData5(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l5=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData5('fr'));
+var p5_1=new google.maps.LatLng(parseFloat(l5[0][1][0]), parseFloat(l5[0][1][1]));
+var p5_2=new google.maps.LatLng(parseFloat(l5[1][1][0]), parseFloat(l5[1][1][1]));
+
+function initialize5()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p5_1,});
+var marker2=new google.maps.Marker({position:p5_2,});
+
+var myCity1 = new google.maps.Circle({
+  center:p5_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p5_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var infowindow1 = new google.maps.InfoWindow({content:"French: "+l5[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"French: "+l5[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+}
+
+
+
+var l6;
+function getData6(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l6=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData6('ja'));
+var p6_1=new google.maps.LatLng(parseFloat(l6[0][1][0]), parseFloat(l6[0][1][1]));
+var p6_2=new google.maps.LatLng(parseFloat(l6[1][1][0]), parseFloat(l6[1][1][1]));
+
+function initialize6()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p6_1,});
+var marker2=new google.maps.Marker({position:p6_2,});
+
+var myCity1 = new google.maps.Circle({
+  center:p6_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p6_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+
+var infowindow1 = new google.maps.InfoWindow({content:"Japanese: "+l6[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"Japanese: "+l6[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+}
+
+
+var l7;
+function getData7(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l7=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData7('ko'));
+var p7_1=new google.maps.LatLng(parseFloat(l7[0][1][0]), parseFloat(l7[0][1][1]));
+var p7_2=new google.maps.LatLng(parseFloat(l7[1][1][0]), parseFloat(l7[1][1][1]));
+
+function initialize7()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p7_1,});
+var marker2=new google.maps.Marker({position:p7_2,});
+
+var myCity1 = new google.maps.Circle({
+  center:p7_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p7_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var infowindow1 = new google.maps.InfoWindow({content:"Korean: "+l7[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"Korean: "+l7[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+
+}
+
+
+var l8;
+function getData8(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l8=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData8('de'));
+var p8_1=new google.maps.LatLng(parseFloat(l8[0][1][0]), parseFloat(l8[0][1][1]));
+var p8_2=new google.maps.LatLng(parseFloat(l8[1][1][0]), parseFloat(l8[1][1][1]));
+
+function initialize8()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p8_1,});
+var marker2=new google.maps.Marker({position:p8_2,});
+
+var myCity1 = new google.maps.Circle({
+  center:p8_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p8_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+
+var infowindow1 = new google.maps.InfoWindow({content:"German: "+l8[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"German: "+l8[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+}
+
+
+var l9
+function getData9(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l9=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData9('pt'));
+var p9_1=new google.maps.LatLng(parseFloat(l9[0][1][0]), parseFloat(l9[0][1][1]));
+var p9_2=new google.maps.LatLng(parseFloat(l9[1][1][0]), parseFloat(l9[1][1][1]));
+
+function initialize9()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p9_1,});
+var marker2=new google.maps.Marker({position:p9_2,});
+
+var myCity1 = new google.maps.Circle({
+  center:p9_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p9_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var infowindow1 = new google.maps.InfoWindow({content:"Portuguese: "+l9[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"Portuguese: "+l9[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+}
+
+
+var l10;
+function getData10(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            l10=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_cluster.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData10('nl'));
+var p10_1=new google.maps.LatLng(parseFloat(l10[0][1][0]), parseFloat(l10[0][1][1]));
+var p10_2=new google.maps.LatLng(parseFloat(l10[1][1][0]), parseFloat(l10[1][1][1]));
+
+function initialize10()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker1=new google.maps.Marker({position:p10_1,});
+var marker2=new google.maps.Marker({position:p10_2,});
+
+var myCity1 = new google.maps.Circle({
+  center:p10_1,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p10_2,
+  radius:2000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+
+var infowindow1 = new google.maps.InfoWindow({content:"Dutch: "+l10[0][2]});
+var infowindow2 = new google.maps.InfoWindow({content:"Dutch: "+l10[1][2]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+}
+</script>
+</head>
+<body>
+
+<!Navigation>
+<nav class="navbar navbar-inverse" role="navigation">  
+   <ul id="myTab" class="nav navbar-nav">
+      <li class="active">
+         <a href="#home" data-toggle="tab" class="navbar-brand" onclick="window.location='index.html'">Home</a>
+      </li> 
+
+      <li class="dropdown">
+         <a href="#" id="myTabDrop1" class="dropdown-toggle" 
+            data-toggle="dropdown">Entertainment 
+            <b class="caret"></b>
+         </a>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            <li><a href="#Topic11" tabindex="-1" data-toggle="tab" onclick="window.location='index_hero.html'">Superhero</a></li>
+            <li><a href="#Topic12" tabindex="-1" data-toggle="tab" onclick="window.location='index_player.html'">Sports</a></li>
+            <li><a href="#Topic13" tabindex="-1" data-toggle="tab" onclick="window.location='index_OS.html'">Smartphone</a></li>
+         </ul>
+      </li>
+
+      <li><a href="#" onclick="window.location='index_president.html'">Election</a></li>
+
+      <li><a href="#" onclick="window.location='index_traffic.html'">Traffic</a></li>
+
+      <li><a href="#" onclick="window.location='index_sentiment.html'">Sentiment</a></li>
+
+      <li><a href="#" onclick="window.location='index_socialmedia.html'">Social Media</a></li>
+      
+      <li><a href="#" onclick="window.location='index_cluster.html'">Language/Culture</a></li>
+
+      <li><a href="#" onclick="window.location='index_ill.html'">Environmental/Health</a></li>
+
+      <li><a href="#" onclick="window.location='index_immediate.html'">Real-time Tweets</a></li>
+
+   </ul>
+</nav>
+
+<!Map & buttons>
+<div id="myTabContent" class="tab-content">
+   <div class="tab-pane fade in active" id="home">
+      <div class="section">
+         <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <h2 class="text-inverse">Language & Mix-culture Analysis</h2>
+                <p>Apart from English, people lived in New York will speak other language, such as Chinese, France and so on. By briefly, in this topic, we want to find this mix-culture by the analysis of different language speaking. In details, with this topic, we can find cluster of people who speak specific languages. We count 10 kinds of languages listed below.</p>
+                <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select language here <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                   <li><a href="#" onclick="initialize1()">Russian</a></li>
+                   <li><a href="#" onclick="initialize2()">Chinese</a></li>
+                   <li><a href="#" onclick="initialize3()">Spanish</a></li>
+                   <li><a href="#" onclick="initialize4()">Arabic</a></li>
+                   <li><a href="#" onclick="initialize5()">French</a></li>
+                   <li><a href="#" onclick="initialize6()">Japanese</a></li>
+                   <li><a href="#" onclick="initialize7()">Korean</a></li>
+                   <li><a href="#" onclick="initialize8()">German</a></li>
+                   <li><a href="#" onclick="initialize9()">Portuguese</a></li>
+                   <li><a href="#" onclick="initialize10()">Dutch</a></li>
+                </ul>
+               </div>
+              </div>
+              <div class="col-md-8">
+                <div id="googleMap" style="width:750px;height:550px;"></div>                  
+              </div>           
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+</body>
+
+</html>

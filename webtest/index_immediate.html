@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment2/Team10</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jsapi.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="css/font-awesome.min.css"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCwAlBNubt45g6_8TFl3NmO77uz8WONP0s&sensor=false"></script>
+
+<script>
+var x=new google.maps.LatLng(40.673635, -73.994787);
+var newInfo;
+var p;
+
+function showHint(int)
+{
+ var xmlhttp;
+ xmlhttp=new XMLHttpRequest();
+ xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      newInfo=JSON.parse(xmlhttp.responseText);  
+    }
+  }
+ xmlhttp.open("GET","2.php?q="+int,true);
+ xmlhttp.send();
+}
+addEventListener("load",showHint(1));
+setInterval("showHint(0)","1000");
+
+
+function initialize1(){
+p=new google.maps.LatLng(parseFloat(newInfo[2][0]), parseFloat(newInfo[2][1]));
+
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({position:p,});
+marker.setMap(map);
+var infowindow=new google.maps.InfoWindow({content:"User Name: "+newInfo[0]});
+infowindow.open(map,marker);
+
+document.getElementById("name").innerHTML=newInfo[0];
+document.getElementById("text").innerHTML=newInfo[1];
+document.getElementById("location").innerHTML=newInfo[2];
+}
+//google.maps.event.addDomListener(window, 'load', initialize1);
+setInterval("initialize1()","2500");
+
+</script>
+</head>
+<body>
+
+<!Navigation>
+<nav class="navbar navbar-inverse" role="navigation">  
+   <ul id="myTab" class="nav navbar-nav">
+      <li class="active">
+         <a href="#home" data-toggle="tab" class="navbar-brand" onclick="window.location='index.html'">Home</a>
+      </li> 
+
+      <li class="dropdown">
+         <a href="#" id="myTabDrop1" class="dropdown-toggle" 
+            data-toggle="dropdown">Entertainment 
+            <b class="caret"></b>
+         </a>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            <li><a href="#Topic11" tabindex="-1" data-toggle="tab" onclick="window.location='index_hero.html'">Superhero</a></li>
+            <li><a href="#Topic12" tabindex="-1" data-toggle="tab" onclick="window.location='index_player.html'">Sports</a></li>
+            <li><a href="#Topic13" tabindex="-1" data-toggle="tab" onclick="window.location='index_OS.html'">Smartphone</a></li>
+         </ul>
+      </li>
+
+      <li><a href="#" onclick="window.location='index_president.html'">Election</a></li>
+
+      <li><a href="#" onclick="window.location='index_traffic.html'">Traffic</a></li>
+
+      <li><a href="#" onclick="window.location='index_sentiment.html'">Sentiment</a></li>
+
+      <li><a href="#" onclick="window.location='index_socialmedia.html'">Social Media</a></li>
+      
+      <li><a href="#" onclick="window.location='index_cluster.html'">Language/Culture</a></li>
+
+      <li><a href="#" onclick="window.location='index_ill.html'">Environmental/Health</a></li>
+
+      <li><a href="#" onclick="window.location='index_immediate.html'">Real-time Tweets</a></li>
+
+   </ul>
+</nav>
+
+
+<!Immediate & graph>
+<div id="myTabContent" class="tab-content">
+   <div class="tab-pane fade in active" id="home">
+      <div class="section">
+         <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <h2 class="text-inverse">Tweets Real-time Presentation</h2>
+                <p>Real-time tweets are cached and presented in the map left and table below. <br/></p>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="info">Twitter</th>  
+                                    <th class="info">Location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span id="name"></span></td>
+                                    <td><span id="location"></span></td>
+                                </tr>                                                                                                
+                            </tbody>
+                            <thead>
+                                <tr>
+                                    <th class="info">Tweet</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span id="text"></span></td>
+                                </tr>                                                                                                
+                            </tbody>                            
+                        </table>
+                </div>
+               
+               <div class="col-md-8">
+                  <div id="googleMap" style="width:840px;height:580px;">                
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+</body>
+</html>
+  

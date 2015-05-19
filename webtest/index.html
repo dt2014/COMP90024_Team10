@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+        rel="stylesheet" type="text/css">
+    </head>
+
+<body>
+
+<!Rolling pictures>
+        <div class="cover">
+            <div class="cover-image" style="background-image: url(background.jpg);"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1 class="text-inverse">Explore NYC</h1>
+                        <p class="text-inverse">Go and discover life in new york city from here.</p>
+                        <br>
+                        <br>
+                        <a class="btn btn-lg btn-primary" href="#detail">See details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!Introduction 3 columns>
+<div class="section" id="detail">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4">
+            <h2 class="text-muted">New York</h2>
+            <p>The most populous city in the United States and center
+               <br>of the New York metropolitan area, the premier gateway
+               <br>for legal immigration to the United States and one of
+               <br>the most populous urban agglomerations in the world.
+               <br>A global power city, New York exerts a significant 
+               <br>impact upon commerce, finance, media, art, fashion, 
+               <br>research, technology, education, and entertainment.
+               <br>
+               <br>New York City has been described as the cultural 
+               <br>capital of the world. In such a place, people have
+               <br>varying lifestyles. Twitter is a popular tool used for
+               <br>social communication. This site tends to explore
+               <br>the life of people in New York City from a range of
+               <br>perspectives.
+            </p>
+         </div>
+         <div class="col-md-4">
+            <h2 class="text-muted">About Project</h2>
+            <p>Big data analysis is becoming more and more popular currently. Big data not just means the amount of data is large, but also means the types of data is various. Big data analysis can benefit human life in many ways.<br/><br/>In this project, with the help of Nectar Cloud Resource, our aim is to harvest tweets which are sent from New York on Twitter, and perform some data analysis on these data in order to study New York in different respects e.g. entertainment, sport, health, culture etc. Technologies listed on the right side are implemented in this projects.
+            </p>
+
+         </div>
+         <div class="col-md-4">
+            <div class="section">
+              <h2 class="text-muted">Technologies</h2>
+                <p>The all task is divided into 4 stages: Configuring cloud environment, Harvesting Tweets from New York, Analying data from different perspectives, and presenting results in webpages.</p>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <ul contenteditable="false">
+                           <B>1. Cloud Configuration</B>
+                           <li>Boto</li>
+                           <li>Ansible</li><br/>
+
+                           <B>2. Tweets Harvest</B>
+                           <li>Twitter Search API</li>
+                           <li>CouchDB</li>
+                           <li>Java Vert.x</li><br/>
+
+                           <B>3. Data Analysis</B>
+                           <li>Machine learning classification</li>
+                           <li>Python</li>
+                           <li>Sentiment generator</li><br/>
+
+                           <B>4. Results Presentation</B>
+                           <li>HTML/CSS/JavaScript</li>
+                           <li>PHP</li>
+                           <li>Google MAP API/Google Charts</li>
+                           <li>Bootstrap</li>
+                        </ul>
+                     </div>
+                  </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!Page devider>
+<div class="section">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <hr>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<!Structure>
+<div class="section">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4">
+            <h2 class="text-muted">Architecture Design</h2>
+            <p>First picture shows the all intances and related configurations. The second one displays the process of fetching Tweets. The last one shows how could web server response requests and access various databases.<p/><br/>
+            <h2 class="text-muted">Discover NYC</h2>
+           <p>What are you waiting for?<br/>Start the journey of exploring the "Big Apple"<br/>Right here, Right now!</p><br/>
+            <button type="button" class="btn btn-primary btn-lg" onclick="window.location='index_home.html'">Go discover</button><br/><br/><br/><br/><br/><br/>
+            <img src="ny.png"/>
+         </div>
+         <div class="col-md-8">
+
+<div id="myCarousel" class="carousel slide">
+   <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+   </ol>   
+   <div class="carousel-inner">
+      <div class="item active">
+         <img src="1.png" alt="First slide">
+      </div>
+      <div class="item">
+         <img src="2.png" alt="Second slide">
+      </div>
+      <div class="item">
+         <img src="3.png" alt="Third slide">
+      </div>
+   </div>
+   <a class="carousel-control left" href="#myCarousel" 
+      data-slide="prev">&lsaquo;</a>
+   <a class="carousel-control right" href="#myCarousel" 
+      data-slide="next">&rsaquo;</a>
+</div> 
+
+         </div>
+      </div>
+   </div>
+</div>
+
+<!Page devider>
+<div class="section">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <hr>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!Team Members>
+<div class="section" style="background-color:rgb(216,216,216);">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h1 class="text-center">Team Member</h1>
+            <p class="text-center">Yes, we aim to analyse big data!<br><br></p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-2">
+            <img src="jk.jpg"
+            class="img-circle img-responsive">
+         </div>
+         <div class="col-md-4">
+            <h3 class="text-left">Jack</h3>
+            <p class="text-left">Data analysist<br/>Scenario designer</p>
+         </div>
+         <div class="col-md-2">
+            <img src="td.jpg"
+            class="img-circle img-responsive">
+         </div>
+         <div class="col-md-4">
+            <h3 class="text-left">Toddy</h3>
+            <p class="text-left">Data analysist<br/>Web service manager</p>
+         </div>
+      </div>
+
+
+      <div class="row">
+         <div class="col-md-2">
+            <img src="df.jpg"
+            class="img-circle img-responsive">
+         </div>
+         <div class="col-md-4">
+            <h3 class="text-left">Daphne</h3>
+            <p class="text-left">Data collector<br/>Data manager</p>
+         </div>
+         <div class="col-md-2">
+            <img src="jky.jpg"
+            class="img-circle img-responsive">
+         </div>
+         <div class="col-md-4">
+            <h3 class="text-left">Jacky</h3>
+            <p class="text-left">Cloud server manager<br/>Instance service initiator</p>
+         </div>
+      </div>
+
+
+      <div class="row">
+         <div class="col-md-2">
+            <img src="sct.jpg"
+            class="img-circle img-responsive">
+         </div>
+         <div class="col-md-4">
+            <h3 class="text-left">Scott</h3>
+            <p class="text-left">Website builder<br/>Web service manager</p>
+         </div>
+      </div>
+
+   </div>
+</div>
+
+
+
+
+</body>
+
+</html>

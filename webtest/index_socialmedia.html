@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment2/Team10</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jsapi.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="css/bootstrap.css"></script>
+<script src="css/font-awesome.min.css"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCwAlBNubt45g6_8TFl3NmO77uz8WONP0s&sensor=false"></script>
+<script>
+var tableData;
+function getData(str)
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+{
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      document.getElementById("n1").innerHTML=JSON.parse(xmlhttp.responseText)[0][0];
+      document.getElementById("n2").innerHTML=JSON.parse(xmlhttp.responseText)[1][0];
+      document.getElementById("n3").innerHTML=JSON.parse(xmlhttp.responseText)[2][0];
+      document.getElementById("n4").innerHTML=JSON.parse(xmlhttp.responseText)[3][0];
+      document.getElementById("n5").innerHTML=JSON.parse(xmlhttp.responseText)[4][0];
+      document.getElementById("n6").innerHTML=JSON.parse(xmlhttp.responseText)[5][0];
+      document.getElementById("n7").innerHTML=JSON.parse(xmlhttp.responseText)[6][0];
+      document.getElementById("n8").innerHTML=JSON.parse(xmlhttp.responseText)[7][0];
+      document.getElementById("n9").innerHTML=JSON.parse(xmlhttp.responseText)[8][0];  
+      document.getElementById("n10").innerHTML=JSON.parse(xmlhttp.responseText)[9][0];
+      
+      document.getElementById("c1").innerHTML=JSON.parse(xmlhttp.responseText)[0][1];
+      document.getElementById("c2").innerHTML=JSON.parse(xmlhttp.responseText)[1][1];
+      document.getElementById("c3").innerHTML=JSON.parse(xmlhttp.responseText)[2][1];
+      document.getElementById("c4").innerHTML=JSON.parse(xmlhttp.responseText)[3][1];
+      document.getElementById("c5").innerHTML=JSON.parse(xmlhttp.responseText)[4][1];
+      document.getElementById("c6").innerHTML=JSON.parse(xmlhttp.responseText)[5][1];
+      document.getElementById("c7").innerHTML=JSON.parse(xmlhttp.responseText)[6][1];
+      document.getElementById("c8").innerHTML=JSON.parse(xmlhttp.responseText)[7][1];
+      document.getElementById("c9").innerHTML=JSON.parse(xmlhttp.responseText)[8][1];  
+      document.getElementById("c10").innerHTML=JSON.parse(xmlhttp.responseText)[9][1];                       
+    }
+}
+xmlhttp.open("GET","index_negative.php?q="+str,true);
+xmlhttp.send();
+}
+addEventListener("load",getData('socialmedia'));
+</script>
+
+</head>
+<body>
+
+<!Navigation>
+<nav class="navbar navbar-inverse" role="navigation">  
+   <ul id="myTab" class="nav navbar-nav">
+      <li class="active">
+         <a href="#home" data-toggle="tab" class="navbar-brand" onclick="window.location='index.html'">Home</a>
+      </li> 
+
+      <li class="dropdown">
+         <a href="#" id="myTabDrop1" class="dropdown-toggle" 
+            data-toggle="dropdown">Entertainment 
+            <b class="caret"></b>
+         </a>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            <li><a href="#Topic11" tabindex="-1" data-toggle="tab" onclick="window.location='index_hero.html'">Superhero</a></li>
+            <li><a href="#Topic12" tabindex="-1" data-toggle="tab" onclick="window.location='index_player.html'">Sports</a></li>
+            <li><a href="#Topic13" tabindex="-1" data-toggle="tab" onclick="window.location='index_OS.html'">Smartphone</a></li>
+         </ul>
+      </li>
+
+      <li><a href="#" onclick="window.location='index_president.html'">Election</a></li>
+
+      <li><a href="#" onclick="window.location='index_traffic.html'">Traffic</a></li>
+
+      <li><a href="#" onclick="window.location='index_sentiment.html'">Sentiment</a></li>
+
+      <li><a href="#" onclick="window.location='index_socialmedia.html'">Social Media</a></li>
+      
+      <li><a href="#" onclick="window.location='index_cluster.html'">Language/Culture</a></li>
+
+      <li><a href="#" onclick="window.location='index_ill.html'">Environmental/Health</a></li>
+
+      <li><a href="#" onclick="window.location='index_immediate.html'">Real-time Tweets</a></li>
+
+   </ul>
+</nav>
+
+<!First page: text & graph>
+<div id="myTabContent" class="tab-content">
+   <div class="tab-pane fade in active" id="home">
+      <div class="section">
+         <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <h2 class="text-inverse">Social Media: Twitter Criticism Analysis</h2>
+                <p>Twitter is a popular social media tools. A popular twitter's tweets are usually re-tweeted by  follower. However, if one of the popular twitter users always publishes the negative message, this user will have a high probability to produce the negative effects on society.</p>
+                <div class="section">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ul contenteditable="false">
+                          <li>We find these popular twitter users, whose twitter account is with more than 500K follower, and find the top popular users who always publish the negative message.</li>
+                          <li>We try to use the result as our evidence to persuade them to decrease their published negative message numbers, such as sending messages to them with the analysis result and potential negative effects for the society.</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                </div>
+
+               </div>
+               <div class="col-md-9">
+               <div class="section">
+               <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th class="info">User portrait</th>
+                                    <th class="info">Twitter</th>
+                                    <th class="info">Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><img src="greensboro_nc.png" onclick="window.location='https://twitter.com/greensboro_nc'"></td>
+                                    <td><span id="n1"></span></td>
+                                    <td><span id="c1"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><img src="realDonaldTrump.png" onclick="window.location='https://twitter.com/realDonaldTrump'"></td>
+                                    <td><span id="n2"></span></td>
+                                    <td><span id="c2"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><img src="nationalbook.png" onclick="window.location='https://twitter.com/nationalbook'"></td>
+                                    <td><span id="n3"></span></td>
+                                    <td><span id="c3"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><img src="DCBYGBounce.png" onclick="window.location='https://twitter.com/DCBYGBounce'"></td>
+                                    <td><span id="n4"></span></td>
+                                    <td><span id="c4"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><img src="Weatherford5.png" onclick="window.location='https://twitter.com/Weatherford5'"></td>
+                                    <td><span id="n5"></span></td>
+                                    <td><span id="c5"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td><img src="karaswisher.png" onclick="window.location='https://twitter.com/karaswisher'"></td>
+                                    <td><span id="n6"></span></td>
+                                    <td><span id="c6"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td><img src="iamcolinquinn.png" onclick="window.location='https://twitter.com/iamcolinquinn'"></td>
+                                    <td><span id="n7"></span></td>
+                                    <td><span id="c7"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td><img src="1Word_Respect.png" onclick="window.location='https://twitter.com/1Word_Respect'"></td>
+                                    <td><span id="n8"></span></td>
+                                    <td><span id="c8"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td><img src="Dropdeadcunts.png" onclick="window.location='https://twitter.com/Dropdeadcunts'"></td>
+                                    <td><span id="n9"></span></td>
+                                    <td><span id="c9"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td><img src="HLNTV.png" onclick="window.location='https://twitter.com/HLNTV'"></td>
+                                    <td><span id="n10"></span></td>
+                                    <td><span id="c10"></span></td>
+                                </tr>                                                                                                 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+               </div>
+              </div> 
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+</body>
+</html>

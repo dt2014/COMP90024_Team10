@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment2/Team10</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jsapi.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCwAlBNubt45g6_8TFl3NmO77uz8WONP0s&sensor=false"></script>
+<script>
+var PiegraphData;
+function getData(str)
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+{
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      PiegraphData=JSON.parse(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET","index_hero.php?q="+str,false);
+xmlhttp.send();
+}
+addEventListener("load",getData('phone'));
+</script>
+
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() 
+{
+   var data = google.visualization.arrayToDataTable(PiegraphData);
+   var options = {title: 'Smartphone choice'};
+   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+   chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+
+<!Navigation>
+<nav class="navbar navbar-inverse" role="navigation">  
+   <ul id="myTab" class="nav navbar-nav">
+      <li class="active">
+         <a href="#home" data-toggle="tab" class="navbar-brand" onclick="window.location='index.html'">Home</a>
+      </li> 
+
+      <li class="dropdown">
+         <a href="#" id="myTabDrop1" class="dropdown-toggle" 
+            data-toggle="dropdown">Entertainment 
+            <b class="caret"></b>
+         </a>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            <li><a href="#Topic11" tabindex="-1" data-toggle="tab" onclick="window.location='index_hero.html'">Superhero</a></li>
+            <li><a href="#Topic12" tabindex="-1" data-toggle="tab" onclick="window.location='index_player.html'">Sports</a></li>
+            <li><a href="#Topic13" tabindex="-1" data-toggle="tab" onclick="window.location='index_OS.html'">Smartphone</a></li>
+         </ul>
+      </li>
+
+      <li><a href="#" onclick="window.location='index_president.html'">Election</a></li>
+
+      <li><a href="#" onclick="window.location='index_traffic.html'">Traffic</a></li>
+
+      <li><a href="#" onclick="window.location='index_sentiment.html'">Sentiment</a></li>
+
+      <li><a href="#" onclick="window.location='index_socialmedia.html'">Social Media</a></li>
+      
+      <li><a href="#" onclick="window.location='index_cluster.html'">Language/Culture</a></li>
+
+      <li><a href="#" onclick="window.location='index_ill.html'">Environmental/Health</a></li>
+
+      <li><a href="#" onclick="window.location='index_immediate.html'">Real-time Tweets</a></li>
+
+   </ul>
+</nav>
+
+<!First page: text & graph>
+<div id="myTabContent" class="tab-content">
+   <div class="tab-pane fade in active" id="home">
+      <div class="section">
+         <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <h2 class="text-inverse">Smartphone Operation System Popularity Analysis</h2>
+                <p>iphone or Android are two main stream in the mobile system. Here we will study the tweet information and find which system talked are hotter.</p>
+                <div class="section">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ul contenteditable="false">
+                          <li>Tweets' meta data will show which operation system Twitters are using.</li>
+                          <li>Obviously, iPhone dominates the market.</li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+               </div>
+               <div class="col-md-9">
+                  <div id="piechart" style="width: 900px; height: 500px;"></div>  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+</body>
+</html>

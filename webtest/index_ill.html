@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment2/Team10</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCwAlBNubt45g6_8TFl3NmO77uz8WONP0s&sensor=false"></script>
+<script>
+var x=new google.maps.LatLng(40.673635, -73.994787);
+function initialize()
+{
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+
+var ill;
+function getData(str)
+{
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            ill=JSON.parse(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET","index_ill.php?q="+str,false);
+    xmlhttp.send();
+}
+addEventListener("load",getData('ill'));
+var p_1=new google.maps.LatLng(parseFloat(ill[0][0][0]), parseFloat(ill[0][0][1]));
+var p_2=new google.maps.LatLng(parseFloat(ill[1][0][0]), parseFloat(ill[1][0][1]));
+var p_3=new google.maps.LatLng(parseFloat(ill[2][0][0]), parseFloat(ill[2][0][1]));
+var p_4=new google.maps.LatLng(parseFloat(ill[3][0][0]), parseFloat(ill[3][0][1]));
+var p_5=new google.maps.LatLng(parseFloat(ill[4][0][0]), parseFloat(ill[4][0][1]));
+var p_6=new google.maps.LatLng(parseFloat(ill[5][0][0]), parseFloat(ill[5][0][1]));
+var p_7=new google.maps.LatLng(parseFloat(ill[6][0][0]), parseFloat(ill[6][0][1]));
+var p_8=new google.maps.LatLng(parseFloat(ill[7][0][0]), parseFloat(ill[7][0][1]));
+var p_9=new google.maps.LatLng(parseFloat(ill[8][0][0]), parseFloat(ill[8][0][1]));
+var p_10=new google.maps.LatLng(parseFloat(ill[9][0][0]), parseFloat(ill[9][0][1]));
+
+function initialize1(){
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker1=new google.maps.Marker({position:p_1,});
+var marker2=new google.maps.Marker({position:p_2,});
+var marker3=new google.maps.Marker({position:p_3,});
+var marker4=new google.maps.Marker({position:p_4,});
+var marker5=new google.maps.Marker({position:p_5,});
+var marker6=new google.maps.Marker({position:p_6,});
+var marker7=new google.maps.Marker({position:p_7,});
+var marker8=new google.maps.Marker({position:p_8,});
+var marker9=new google.maps.Marker({position:p_9,});
+var marker10=new google.maps.Marker({position:p_10,});
+
+var myCity1 = new google.maps.Circle({
+  center:p_1,
+  radius:1000,
+  strokeColor:"#C1E8FA",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#C1E8FA",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p_2,
+  radius:1000,
+  strokeColor:"#C1E8FA",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#C1E8FA",
+  fillOpacity:0.4
+  });
+var myCity3 = new google.maps.Circle({
+  center:p_3,
+  radius:1000,
+  strokeColor:"#9FD4F7",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#9FD4F7",
+  fillOpacity:0.4
+  });
+var myCity4 = new google.maps.Circle({
+  center:p_4,
+  radius:1000,
+  strokeColor:"#70B2F4",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#70B2F4",
+  fillOpacity:0.4
+  });
+var myCity5 = new google.maps.Circle({
+  center:p_5,
+  radius:1000,
+  strokeColor:"#70B2F4",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#70B2F4",
+  fillOpacity:0.4
+  });
+var myCity6 = new google.maps.Circle({
+  center:p_6,
+  radius:1000,
+  strokeColor:"#126BEC",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#126BEC",
+  fillOpacity:0.4
+  });
+var myCity7 = new google.maps.Circle({
+  center:p_7,
+  radius:1000,
+  strokeColor:"#126BEC",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#126BEC",
+  fillOpacity:0.4
+  });
+var myCity8 = new google.maps.Circle({
+  center:p_8,
+  radius:1000,
+  strokeColor:"#1368EC",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#1368EC",
+  fillOpacity:0.4
+  });
+var myCity9 = new google.maps.Circle({
+  center:p_9,
+  radius:1000,
+  strokeColor:"#1368EC",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#1368EC",
+  fillOpacity:0.4
+  });
+var myCity10 = new google.maps.Circle({
+  center:p_10,
+  radius:1000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var infowindow1 = new google.maps.InfoWindow({content:"Ill population: "+ill[0][1]});
+var infowindow2 = new google.maps.InfoWindow({content:"Ill population: "+ill[1][1]});
+var infowindow3 = new google.maps.InfoWindow({content:"Ill population: "+ill[2][1]});
+var infowindow4 = new google.maps.InfoWindow({content:"Ill population: "+ill[3][1]});
+var infowindow5 = new google.maps.InfoWindow({content:"Ill population: "+ill[4][1]});
+var infowindow6 = new google.maps.InfoWindow({content:"Ill population: "+ill[5][1]});
+var infowindow7 = new google.maps.InfoWindow({content:"Ill population: "+ill[6][1]});
+var infowindow8 = new google.maps.InfoWindow({content:"Ill population: "+ill[7][1]});
+var infowindow9 = new google.maps.InfoWindow({content:"Ill population: "+ill[8][1]});
+var infowindow10 = new google.maps.InfoWindow({content:"Ill population: "+ill[9][1]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+
+myCity3.setMap(map);
+marker3.setMap(map);
+google.maps.event.addListener(marker3, 'click', function() {infowindow3.open(map,marker3);});
+
+myCity4.setMap(map);
+marker4.setMap(map);
+google.maps.event.addListener(marker4, 'click', function() {infowindow4.open(map,marker4);});
+
+myCity5.setMap(map);
+marker5.setMap(map);
+google.maps.event.addListener(marker5, 'click', function() {infowindow5.open(map,marker5);});
+
+myCity6.setMap(map);
+marker6.setMap(map);
+google.maps.event.addListener(marker6, 'click', function() {infowindow6.open(map,marker6);});
+
+myCity7.setMap(map);
+marker7.setMap(map);
+google.maps.event.addListener(marker7, 'click', function() {infowindow7.open(map,marker7);});
+
+myCity8.setMap(map);
+marker8.setMap(map);
+google.maps.event.addListener(marker8, 'click', function() {infowindow8.open(map,marker8);});
+
+myCity9.setMap(map);
+marker9.setMap(map);
+google.maps.event.addListener(marker9, 'click', function() {infowindow9.open(map,marker9);});
+
+myCity10.setMap(map);
+marker10.setMap(map);
+google.maps.event.addListener(marker10, 'click', function() {infowindow10.open(map,marker10);});
+}
+
+
+var w1=new google.maps.LatLng(40.705174, -74.007399);
+var w2=new google.maps.LatLng(40.705569, -74.007989);
+var w3=new google.maps.LatLng(40.706378, -74.009523);
+var w4=new google.maps.LatLng(40.707491, -74.011272);
+var w5=new google.maps.LatLng(40.707720, -74.011680);
+
+var island_h1=new google.maps.LatLng(40.585501, -74.088557);
+var island_h2=new google.maps.LatLng(40.611569, -74.135936);
+var island_h3=new google.maps.LatLng(40.633979, -74.105552);
+var island_h4=new google.maps.LatLng(40.621896, -74.076283);
+var island_h5=new google.maps.LatLng(40.549217, -74.189065);
+var island_h6=new google.maps.LatLng(40.515164, -74.196446);
+var island_h7=new google.maps.LatLng(40.526778, -74.165376);
+
+var brooklyn_h1=new google.maps.LatLng(40.744832, -73.883480);
+var brooklyn_h2=new google.maps.LatLng(40.767002, -73.926224);
+var brooklyn_h3=new google.maps.LatLng(40.714574, -73.799179);
+var brooklyn_h4=new google.maps.LatLng(40.702342, -73.822868);
+var brooklyn_h5=new google.maps.LatLng(40.655215, -73.931701);
+var brooklyn_h6=new google.maps.LatLng(40.652871, -73.941314);
+var brooklyn_h7=new google.maps.LatLng(40.644129, -74.025857);
+var brooklyn_h8=new google.maps.LatLng(40.617031, -73.945520);
+var brooklyn_h9=new google.maps.LatLng(40.581709, -73.957021);
+var brooklyn_h10=new google.maps.LatLng(40.723681, -73.853424);
+
+var manha_h1=new google.maps.LatLng(40.710829, -74.000795);
+var manha_h2=new google.maps.LatLng(40.714863, -74.002512);
+var manha_h3=new google.maps.LatLng(40.711089, -74.012296);
+var manha_h4=new google.maps.LatLng(40.731775, -73.981225);
+var manha_h5=new google.maps.LatLng(40.738604, -74.003026);
+var manha_h6=new google.maps.LatLng(40.737563, -73.975303);
+var manha_h7=new google.maps.LatLng(40.759476, -73.960283);
+var manha_h8=new google.maps.LatLng(40.765652, -73.956420);
+var manha_h9=new google.maps.LatLng(40.769033, -73.987920);
+var manha_h10=new google.maps.LatLng(40.773713, -73.962429);
+var manha_h11=new google.maps.LatLng(40.773713, -73.962429);
+var manha_h12=new google.maps.LatLng(40.805945, -73.959768);
+var manha_h13=new google.maps.LatLng(40.808998, -73.946121);
+var manha_h14=new google.maps.LatLng(40.806269, -73.939683);
+var manha_h15=new google.maps.LatLng(40.815949, -73.940885);
+
+var bronx_h1=new google.maps.LatLng(40.882194, -73.883207);
+var bronx_h2=new google.maps.LatLng(40.847143, -73.847330);
+var bronx_h3=new google.maps.LatLng(40.851298, -73.891962);
+var bronx_h4=new google.maps.LatLng(40.841429, -73.911703);
+var bronx_h5=new google.maps.LatLng(40.829740, -73.905008);
+var bronx_h6=new google.maps.LatLng(40.815710, -73.926809);
+var bronx_h7=new google.maps.LatLng(40.866099, -73.904321);
+
+var queens_h1=new google.maps.LatLng(40.743643, -73.823469);
+var queens_h2=new google.maps.LatLng(40.753396, -73.816088);
+var queens_h3=new google.maps.LatLng(40.739871, -73.802698);
+var queens_h4=new google.maps.LatLng(40.788757, -73.816946);
+var queens_h5=new google.maps.LatLng(40.722050, -73.726652);
+var queens_h6=new google.maps.LatLng(40.715935, -73.768709);
+var queens_h7=new google.maps.LatLng(40.715935, -73.801325);
+var queens_h8=new google.maps.LatLng(40.698498, -73.816431);
+var queens_h9=new google.maps.LatLng(40.596385, -73.759268);
+
+function initialize3(){
+var mapProp = {
+  center:x,
+  zoom:10,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker1=new google.maps.Marker({position:p_1,});
+var marker2=new google.maps.Marker({position:p_2,});
+var marker3=new google.maps.Marker({position:p_3,});
+var marker4=new google.maps.Marker({position:p_4,});
+var marker5=new google.maps.Marker({position:p_5,});
+var marker6=new google.maps.Marker({position:p_6,});
+var marker7=new google.maps.Marker({position:p_7,});
+var marker8=new google.maps.Marker({position:p_8,});
+var marker9=new google.maps.Marker({position:p_9,});
+var marker10=new google.maps.Marker({position:p_10,});
+
+var island1=new google.maps.Marker({position:island_h1, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var island2=new google.maps.Marker({position:island_h2, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var island3=new google.maps.Marker({position:island_h3, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var island4=new google.maps.Marker({position:island_h4, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var island5=new google.maps.Marker({position:island_h5, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var island6=new google.maps.Marker({position:island_h6, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var island7=new google.maps.Marker({position:island_h7, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+island1.setMap(map);
+island2.setMap(map);
+island3.setMap(map);
+island4.setMap(map);
+island5.setMap(map);
+island6.setMap(map);
+island7.setMap(map);
+
+var brooklyn1=new google.maps.Marker({position:brooklyn_h1, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn2=new google.maps.Marker({position:brooklyn_h2, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn3=new google.maps.Marker({position:brooklyn_h3, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn4=new google.maps.Marker({position:brooklyn_h4, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn5=new google.maps.Marker({position:brooklyn_h5, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn6=new google.maps.Marker({position:brooklyn_h6, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn7=new google.maps.Marker({position:brooklyn_h7, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn8=new google.maps.Marker({position:brooklyn_h8, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn9=new google.maps.Marker({position:brooklyn_h9, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var brooklyn10=new google.maps.Marker({position:brooklyn_h10, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+brooklyn1.setMap(map);
+brooklyn2.setMap(map);
+brooklyn3.setMap(map);
+brooklyn4.setMap(map);
+brooklyn5.setMap(map);
+brooklyn6.setMap(map);
+brooklyn7.setMap(map);
+brooklyn8.setMap(map);
+brooklyn9.setMap(map);
+brooklyn10.setMap(map);
+
+var manha1=new google.maps.Marker({position:manha_h1, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha2=new google.maps.Marker({position:manha_h2, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha3=new google.maps.Marker({position:manha_h3, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha4=new google.maps.Marker({position:manha_h4, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha5=new google.maps.Marker({position:manha_h5, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha6=new google.maps.Marker({position:manha_h6, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha7=new google.maps.Marker({position:manha_h7, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha8=new google.maps.Marker({position:manha_h8, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha9=new google.maps.Marker({position:manha_h9, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha10=new google.maps.Marker({position:manha_h10, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha11=new google.maps.Marker({position:manha_h11, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha12=new google.maps.Marker({position:manha_h12, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha13=new google.maps.Marker({position:manha_h13, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha14=new google.maps.Marker({position:manha_h14, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var manha15=new google.maps.Marker({position:manha_h15, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+manha1.setMap(map);
+manha2.setMap(map);
+manha3.setMap(map);
+manha4.setMap(map);
+manha5.setMap(map);
+manha6.setMap(map);
+manha7.setMap(map);
+manha8.setMap(map);
+manha9.setMap(map);
+manha10.setMap(map);
+manha11.setMap(map);
+manha12.setMap(map);
+manha13.setMap(map);
+manha14.setMap(map);
+manha15.setMap(map);
+
+var bronx1=new google.maps.Marker({position:bronx_h1, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var bronx2=new google.maps.Marker({position:bronx_h2, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var bronx3=new google.maps.Marker({position:bronx_h3, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var bronx4=new google.maps.Marker({position:bronx_h4, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var bronx5=new google.maps.Marker({position:bronx_h5, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var bronx6=new google.maps.Marker({position:bronx_h6, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var bronx7=new google.maps.Marker({position:bronx_h7, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+bronx1.setMap(map);
+bronx2.setMap(map);
+bronx3.setMap(map);
+bronx4.setMap(map);
+bronx5.setMap(map);
+bronx6.setMap(map);
+bronx7.setMap(map);
+
+var queens1=new google.maps.Marker({position:queens_h1, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var queens2=new google.maps.Marker({position:queens_h2, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var queens3=new google.maps.Marker({position:queens_h3, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var queens4=new google.maps.Marker({position:queens_h4, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var queens5=new google.maps.Marker({position:queens_h5, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var queens6=new google.maps.Marker({position:queens_h6, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var queens7=new google.maps.Marker({position:queens_h7, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var queens8=new google.maps.Marker({position:queens_h8, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+var queens9=new google.maps.Marker({position:queens_h9, icon:'http://maps.google.com/mapfiles/ms/icons/purple-dot.png'});
+queens1.setMap(map);
+queens2.setMap(map);
+queens3.setMap(map);
+queens4.setMap(map);
+queens5.setMap(map);
+queens6.setMap(map);
+queens7.setMap(map);
+queens8.setMap(map);
+queens9.setMap(map);
+
+var myCity1 = new google.maps.Circle({
+  center:p_1,
+  radius:1000,
+  strokeColor:"#C1E8FA",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#C1E8FA",
+  fillOpacity:0.4
+  });
+var myCity2 = new google.maps.Circle({
+  center:p_2,
+  radius:1000,
+  strokeColor:"#C1E8FA",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#C1E8FA",
+  fillOpacity:0.4
+  });
+var myCity3 = new google.maps.Circle({
+  center:p_3,
+  radius:1000,
+  strokeColor:"#9FD4F7",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#9FD4F7",
+  fillOpacity:0.4
+  });
+var myCity4 = new google.maps.Circle({
+  center:p_4,
+  radius:1000,
+  strokeColor:"#70B2F4",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#70B2F4",
+  fillOpacity:0.4
+  });
+var myCity5 = new google.maps.Circle({
+  center:p_5,
+  radius:1000,
+  strokeColor:"#70B2F4",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#70B2F4",
+  fillOpacity:0.4
+  });
+var myCity6 = new google.maps.Circle({
+  center:p_6,
+  radius:1000,
+  strokeColor:"#126BEC",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#126BEC",
+  fillOpacity:0.4
+  });
+var myCity7 = new google.maps.Circle({
+  center:p_7,
+  radius:1000,
+  strokeColor:"#126BEC",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#126BEC",
+  fillOpacity:0.4
+  });
+var myCity8 = new google.maps.Circle({
+  center:p_8,
+  radius:1000,
+  strokeColor:"#1368EC",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#1368EC",
+  fillOpacity:0.4
+  });
+var myCity9 = new google.maps.Circle({
+  center:p_9,
+  radius:1000,
+  strokeColor:"#1368EC",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#1368EC",
+  fillOpacity:0.4
+  });
+var myCity10 = new google.maps.Circle({
+  center:p_10,
+  radius:1000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+var infowindow1 = new google.maps.InfoWindow({content:"Ill population: "+ill[0][1]});
+var infowindow2 = new google.maps.InfoWindow({content:"Ill population: "+ill[1][1]});
+var infowindow3 = new google.maps.InfoWindow({content:"Ill population: "+ill[2][1]});
+var infowindow4 = new google.maps.InfoWindow({content:"Ill population: "+ill[3][1]});
+var infowindow5 = new google.maps.InfoWindow({content:"Ill population: "+ill[4][1]});
+var infowindow6 = new google.maps.InfoWindow({content:"Ill population: "+ill[5][1]});
+var infowindow7 = new google.maps.InfoWindow({content:"Ill population: "+ill[6][1]});
+var infowindow8 = new google.maps.InfoWindow({content:"Ill population: "+ill[7][1]});
+var infowindow9 = new google.maps.InfoWindow({content:"Ill population: "+ill[8][1]});
+var infowindow10 = new google.maps.InfoWindow({content:"Ill population: "+ill[9][1]});
+
+myCity1.setMap(map);
+marker1.setMap(map);
+google.maps.event.addListener(marker1, 'click', function() {infowindow1.open(map,marker1);});
+
+myCity2.setMap(map);
+marker2.setMap(map);
+google.maps.event.addListener(marker2, 'click', function() {infowindow2.open(map,marker2);});
+
+myCity3.setMap(map);
+marker3.setMap(map);
+google.maps.event.addListener(marker3, 'click', function() {infowindow3.open(map,marker3);});
+
+myCity4.setMap(map);
+marker4.setMap(map);
+google.maps.event.addListener(marker4, 'click', function() {infowindow4.open(map,marker4);});
+
+myCity5.setMap(map);
+marker5.setMap(map);
+google.maps.event.addListener(marker5, 'click', function() {infowindow5.open(map,marker5);});
+
+myCity6.setMap(map);
+marker6.setMap(map);
+google.maps.event.addListener(marker6, 'click', function() {infowindow6.open(map,marker6);});
+
+myCity7.setMap(map);
+marker7.setMap(map);
+google.maps.event.addListener(marker7, 'click', function() {infowindow7.open(map,marker7);});
+
+myCity8.setMap(map);
+marker8.setMap(map);
+google.maps.event.addListener(marker8, 'click', function() {infowindow8.open(map,marker8);});
+
+myCity9.setMap(map);
+marker9.setMap(map);
+google.maps.event.addListener(marker9, 'click', function() {infowindow9.open(map,marker9);});
+
+myCity10.setMap(map);
+marker10.setMap(map);
+google.maps.event.addListener(marker10, 'click', function() {infowindow10.open(map,marker10);});
+}
+
+</script>
+</head>
+<body>
+
+<!Navigation>
+<nav class="navbar navbar-inverse" role="navigation">  
+   <ul id="myTab" class="nav navbar-nav">
+      <li class="active">
+         <a href="#home" data-toggle="tab" class="navbar-brand" onclick="window.location='index.html'">Home</a>
+      </li> 
+
+      <li class="dropdown">
+         <a href="#" id="myTabDrop1" class="dropdown-toggle" 
+            data-toggle="dropdown">Entertainment 
+            <b class="caret"></b>
+         </a>
+         <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            <li><a href="#Topic11" tabindex="-1" data-toggle="tab" onclick="window.location='index_hero.html'">Superhero</a></li>
+            <li><a href="#Topic12" tabindex="-1" data-toggle="tab" onclick="window.location='index_player.html'">Sports</a></li>
+            <li><a href="#Topic13" tabindex="-1" data-toggle="tab" onclick="window.location='index_OS.html'">Smartphone</a></li>
+         </ul>
+      </li>
+
+      <li><a href="#" onclick="window.location='index_president.html'">Election</a></li>
+
+      <li><a href="#" onclick="window.location='index_traffic.html'">Traffic</a></li>
+
+      <li><a href="#" onclick="window.location='index_sentiment.html'">Sentiment</a></li>
+
+      <li><a href="#" onclick="window.location='index_socialmedia.html'">Social Media</a></li>
+      
+      <li><a href="#" onclick="window.location='index_cluster.html'">Language/Culture</a></li>
+
+      <li><a href="#" onclick="window.location='index_ill.html'">Environmental/Health</a></li>
+
+      <li><a href="#" onclick="window.location='index_immediate.html'">Real-time Tweets</a></li>
+
+   </ul>
+</nav>
+
+<!Map & buttons>
+<div id="myTabContent" class="tab-content">
+   <div class="tab-pane fade in active" id="home">
+      <div class="section">
+         <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <h2 class="text-inverse">Environmental & Healthy Analysis</h2>
+                <p>In this section, we count the number of Twitters who mentioned he or she felt sick during a period. This statistics is accurate to block, which could reflect the healthy or environmental conditions in New York City. Obviously, if a place (except hospital) that is suddenly full of sick people should be paid much attention by the healthy and environmental departments.</p><br/>
+                <button type="button" class="btn btn-primary" onclick="initialize1()">Get Locations</button>
+                <button type="button" class="btn btn-primary" onclick="initialize3()">Get Hospitals</button>
+              </div>
+              <div class="col-md-8">
+                <div id="googleMap" style="width:750px;height:550px;"></div> 
+                <div>Low <img src="icon_ill.png" alt="icon"> Hight</div>                 
+              </div>           
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+</body>
+
+</html>
