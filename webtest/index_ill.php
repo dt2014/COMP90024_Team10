@@ -1,3 +1,12 @@
+/*
+* Team 10
+* New York
+* Fengmin Deng      659332
+* Jiajie Li         631482
+* Shuangchao Yin    612511
+* Weijia Chen       616213
+* Yun Shi           621761
+*/
 <?php //ill people cluster
 $couch_dsn = "http://115.146.87.248:5984/";
 $couch_db = "summary";
